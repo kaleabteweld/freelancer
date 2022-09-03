@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\kalea\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\kalea\\.nuget\\packages"
+    ]
+  }
+}
