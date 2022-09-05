@@ -4,17 +4,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace freelancer.Models
 {
-    public class PostJob : IJob
+    public class PostJob : IJob, IEntityBase
     {
         [Key]
-        public int jobId { get; set; }
+        public long Id { get; set; }
         public string jobTitle { get; set; }
         public string jobDescription { get; set; }
         public string location { get; set; }
         public Organizion postBy { get; set; }
         public EEmploymentType employmentType { get; set; }
         public string jobRequirements { get; set; }
-        public List<Skills> jobSkillRequirements { get; set; }
+        public List<Skill> jobSkillRequirements { get; set; }
         public string jobDuties { get; set; }
         public float minWorkingHours { get; set; }
         public float jobSalary { get; set; }
@@ -22,19 +22,48 @@ namespace freelancer.Models
         public string jobsTypes { get; set; }
 
 
-
     }
-    public class WorkingJob : IJob, IWork
+    public class WorkingJob : IJob, IWork, IEntityBase
     {
+        static public WorkingJob makeWorkingJob(PostJob source, IWork workinfo)
+        {
+            WorkingJob destination = new WorkingJob();
+            var destProperties = destination.GetType().GetProperties();
+
+            foreach (var sourceProperty in source.GetType().GetProperties())
+            {
+                foreach (var destProperty in destProperties)
+                {
+                    if (destProperty.Name == sourceProperty.Name &&
+                destProperty.PropertyType.IsAssignableFrom(sourceProperty.PropertyType))
+                    {
+                        destProperty.SetValue(destination, sourceProperty.GetValue(
+                            source, new object[] { }), new object[] { });
+
+                        break;
+                    }
+                }
+            }
+
+            destination.startDate = workinfo.startDate;
+            destination.contractDetail = workinfo.contractDetail;
+            destination.userJobSatisfactionRating = workinfo.userJobSatisfactionRating;
+            destination.employersatisfactionRating = workinfo.employersatisfactionRating;
+
+
+
+            return destination;
+        }
+
         [Key]
-    public int jobId { get; set; }
+        public long Id { get; set; }
         public string jobTitle { get; set; }
         public string jobDescription { get; set; }
         public string location { get; set; }
         public Organizion postBy { get; set; }
         public EEmploymentType employmentType { get; set; }
         public string jobRequirements { get; set; }
-        public List<Skills> jobSkillRequirements { get; set; }
+        public List<Skill> jobSkillRequirements { get; set; }
         public string jobDuties { get; set; }
         public float minWorkingHours { get; set; }
         public float jobSalary { get; set; }
@@ -49,17 +78,17 @@ namespace freelancer.Models
         public float employersatisfactionRating { get; set; }
 
     }
-    public class DoneJob : IJob, IWork
+    public class DoneJob : IJob, IWork, IEntityBase
     {
         [Key]
-        public int jobId { get; set; }
+        public long Id { get; set; }
         public string jobTitle { get; set; }
         public string jobDescription { get; set; }
         public string location { get; set; }
         public Organizion postBy { get; set; }
         public EEmploymentType employmentType { get; set; }
         public string jobRequirements { get; set; }
-        public List<Skills> jobSkillRequirements { get; set; }
+        public List<Skill> jobSkillRequirements { get; set; }
         public string jobDuties { get; set; }
         public float minWorkingHours { get; set; }
         public float jobSalary { get; set; }
@@ -79,4 +108,5 @@ namespace freelancer.Models
 
 
     }
+
 }

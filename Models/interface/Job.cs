@@ -1,18 +1,23 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace freelancer.Models
 {
     public interface IJob
     {
-        public int jobId { get; set; }
+        public long Id { get; set; }
         public string jobTitle { get; set; }
         public string jobDescription { get; set; }
         public string location { get; set; }
         public Organizion postBy { get; set; }
         public EEmploymentType employmentType { get; set; }
         public string jobRequirements { get; set; }
-        public List<Skills> jobSkillRequirements { get; set; }
+        public List<Skill> jobSkillRequirements { get; set; }
         public string jobDuties { get; set; }
         public float minWorkingHours { get; set; }
         public float jobSalary { get; set; }
@@ -39,6 +44,16 @@ namespace freelancer.Models
         none
 
     }
+
+    public interface IPostJobServices
+    {
+        Task postJob(PostJob newJob);
+    }
+    public interface IWorkingJobServices
+    {
+        Task marktJobAsWorking(PostJob JobPost, IWork workinfo);
+    }
+
 }
 
 

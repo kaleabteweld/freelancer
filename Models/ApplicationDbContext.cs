@@ -20,7 +20,7 @@ namespace freelancer.Models
         public DbSet<DoneJob> DoneJobs { get; set; }
 
         // skills
-        public DbSet<Skills> Skills { get; set; }
+        public DbSet<Skill> Skills { get; set; }
         public DbSet<Course> Courses { get; set; }
 
     }

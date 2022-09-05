@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 namespace freelancer.Models
 {
 
-    public class UserModel
+    public class UserModel : IEntityBase
     {
         // user info
         [Key]
-        public int userId { get; set; }
+        public long Id { get; set; }
         public int XP { get; set; }
         public string fullName { get; set; }
         public string userName { get; set; }
@@ -20,7 +20,7 @@ namespace freelancer.Models
         public List<Collage> collages { get; set; }
         public Students students { get; set; }
         public List<Organizion> organizions { get; set; }
-        public List<Skills> skills { get; set; }
+        public List<Skill> skills { get; set; }
 
         // user jobs
         public List<WorkingJob> jobs { get; set; }
