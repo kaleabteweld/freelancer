@@ -27,7 +27,7 @@ namespace freelancer.Models
     public class WorkingJob : IJob, IWork
     {
         [Key]
-    public int jobId { get; set; }
+        public int jobId { get; set; }
         public string jobTitle { get; set; }
         public string jobDescription { get; set; }
         public string location { get; set; }
@@ -49,7 +49,7 @@ namespace freelancer.Models
         public float employersatisfactionRating { get; set; }
 
     }
-    public class DoneJob : IJob, IWork
+    public class DoneJob : IJob, IWork, IDoneJob
     {
         [Key]
         public int jobId { get; set; }

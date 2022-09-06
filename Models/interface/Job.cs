@@ -27,6 +27,20 @@ namespace freelancer.Models
         public float userJobSatisfactionRating { get; set; }
         public float employersatisfactionRating { get; set; }
     }
+    public interface IDoneJob
+    {
+        public DateTime endtDate { get; set; }
+        public string testimony { get; set; }
+    }
+
+    public interface IJobFilter
+    {
+        Range? salary { get; set; }
+        string? location { get; set; }
+        DateTime? postDate { get; set; }
+        List<EEmploymentType> jobTypes { get; set; }
+
+    }
     public enum EEmploymentType
     {
 
@@ -37,6 +51,29 @@ namespace freelancer.Models
         remote,
         negotiable,
         none
+
+    }
+
+
+    public interface IPostJobsServices
+    {
+        List<PostJob> GetPostJobs();
+        List<PostJob> GetPostJobs(IJobFilter filter);
+        void postJob(PostJob newJob);
+        //void applyForJobs(PostJob Job);
+        //void bookJob(PostJob Job);
+    }
+    public interface IWorkingJobServices
+    {
+        List<WorkingJob> GetWorkingJobs();
+        List<WorkingJob> GetWorkingJobs(IJobFilter filter);
+        void marktJobAsWorking(PostJob JobPost, IWork workinfo);
+    }
+    public interface IDoneJobServices
+    {
+        List<DoneJob> GetDoneJobs();
+        List<DoneJob> GetDoneJobs(IJobFilter filter);
+        void marktJobAsDone(WorkingJob workingJob, IDoneJob doneinfo);
 
     }
 }

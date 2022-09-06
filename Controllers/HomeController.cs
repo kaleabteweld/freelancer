@@ -11,16 +11,16 @@ namespace freelancer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly JobServices _jobServices;
+        public HomeController(JobServices service)
         {
-            _logger = logger;
+            _jobServices = service;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<PostJob> jobs = _jobServices.GetPostJobs();
+            return View(jobs);
         }
 
         public IActionResult Privacy()

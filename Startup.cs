@@ -27,7 +27,7 @@ namespace freelancer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefulatConnection")));
-
+            services.AddScoped<JobServices>();
             services.AddControllersWithViews();
         }
 
