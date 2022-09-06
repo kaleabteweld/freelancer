@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 using freelancer.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Principal;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace freelancer
 {
@@ -27,6 +30,9 @@ namespace freelancer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefulatConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddScoped<JobServices>();
             services.AddControllersWithViews();
         }
@@ -49,6 +55,7 @@ namespace freelancer
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

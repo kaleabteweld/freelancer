@@ -1,0 +1,71 @@
+﻿@model RegisterUserModel
+
+@{
+    ViewBag.title = "User Register";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        
+
+
+        <div class="form-group">
+
+            <label asp-for="fullName"></label>
+            <input asp-for="fullName" class="form-control" />
+            <span asp-validation-for="fullName" class="text-danger"></span>
+
+        </div>
+
+           <div class="form-group">
+
+            <label asp-for="userName"></label>
+            <input asp-for="userName" class="form-control" />
+            <span asp-validation-for="userName" class="text-danger"></span>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label asp-for="phone"></label>
+            <input asp-for="phone" class="form-control" />
+            <span asp-validation-for="phone" class="text-danger"></span>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label asp-for="email"></label>
+            <input asp-for="email" class="form-control" />
+            <span asp-validation-for="email" class="text-danger"></span>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label asp-for="password"></label>
+            <input asp-for="password" class="form-control" />
+            <span asp-validation-for="password" class="text-danger"></span>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <button type="submit" class="btn btn-primary">
+            Register
+        </button>
+        </form>
+
+    </div>
+</div>

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<IdentityUser> signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -24,7 +25,25 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+
+                        
                     </ul>
+                    @if(signInManager.IsSignedIn(User)){
+                        <form method="post" asp-action="LogOut" asp-controller="Account">
+                            <li class="nav-item ml-auto">
+                                <button type="submit" class="nav-link text-dark" >LogOut</button>
+                            </li>
+                        </form>
+                    }else{
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                        </li>
+
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogIn">LogIn</a>
+                        </li>
+                    }
+                   
                 </div>
             </div>
         </nav>
