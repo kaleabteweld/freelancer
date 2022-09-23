@@ -1,4 +1,4 @@
-﻿@inject SignInManager<IdentityUser> signInManager;
+﻿@inject SignInManager<UserModel> signInManager;
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +42,16 @@
                         <li class="nav-item ml-auto">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="LogIn">LogIn</a>
                         </li>
+
+                       
                     }
+                    @if (ViewData["collages"] == null)
+                    {
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="RegisterCollage">LogRegisterCollageIn</a>
+                        </li>
+                    }
+                    
                    
                 </div>
             </div>

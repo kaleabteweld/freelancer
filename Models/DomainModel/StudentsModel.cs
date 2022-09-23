@@ -12,9 +12,11 @@ namespace freelancer.Models
         public DateTime startingYear { get; set; }
         public DateTime? endYear { get; set; }
         public List<Skills> skills { get; set; }
-        public List<Course> courses { get; set; }
+        //public List<Course> courses { get; set; }
         public float GPA { get; set; }
         //public List<string> testimonies { get; set; }
         public bool isGraduated { get; set; }
+
+        public Collage Collage { get; set; }
     }
 }

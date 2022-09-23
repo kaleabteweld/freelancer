@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace freelancer.Models
 {
@@ -8,28 +9,28 @@ namespace freelancer.Models
     public class UserModel : IdentityUser,IUserBaseInfo, IlearningInstitutionInfo
     {
         // user info
-        [Key]
-        public int userId { get; set; }
         public int XP { get; set; }
         public string fullName { get; set; }
-        public string password { get; set; }
-
 
         // 
-        public List<Collage> collages { get; set; }
-        public Students? students { get; set; }
-        public List<Organizion> organizions { get; set; }
-        public List<Skills> skills { get; set; }
+        public Collage? collage { get; set; }
+        public Students? student { get; set; }
+        public List<Organizion>? organizions { get; set; }
+        public List<Skills>? skills { get; set; }
 
         // user jobs
-        public List<WorkingJob> jobs { get; set; }
-        public List<PostJob> bookJobs { get; set; }
-        public List<IWork> likedJobs { get; set; }
-        public List<DoneJob> JobsDone { get; set; }
+        //[ForeignKey("WorkingJobId")]
+        public List<WorkingJob>? jobs { get; set; }
+        //[ForeignKey("bookJobId")]
+        public List<PostJob>? bookJobs { get; set; }
+        //[ForeignKey("likedJobId")]
+        //public List<DoneJob>? likedJobs { get; set; }
+        //[ForeignKey("JobsDoneId")]
+        public List<DoneJob>? JobsDone { get; set; }
 
     }
 
-    public class RegisterUserModel : IUserBaseInfo, IlearningInstitutionInfo
+    public class RegisterUserModel : IUserBaseInfo
     {
         //IUserBaseInfo
         [Required]
@@ -48,12 +49,25 @@ namespace freelancer.Models
         [Required]
         public string phone { get; set; }
 
+    }
+
+    public class RegisterUserCollageIdModel
+    {
         // IlearningInstitutionInfo
-        public List<Collage> collages { get; set; }
+        [Required]
+        [Display(Name = "collage")]
+        public string collageId { get; set; }
+        [Required]
+        public string studentId { get; set; }
 
-        public Students? students { get; set; }
-
-        public List<Skills> skills { get; set; }
+    }
+    public class RegisterUserCollageModel: IlearningInstitutionInfo
+    {
+        // IlearningInstitutionInfo
+        //[Required]
+        public Collage collage { get; set; }
+        //[Required]
+        public Students? student { get; set; }
 
     }
 

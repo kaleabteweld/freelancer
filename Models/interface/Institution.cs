@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace freelancer.Models
 {
     public interface IInstitution
@@ -7,7 +9,10 @@ namespace freelancer.Models
         public string email { get; set; }
         public string phone { get; set; }
 
+    }
 
-
+    public interface ICollageServices
+    {
+        List<Collage> getAllCollage();
     }
 }

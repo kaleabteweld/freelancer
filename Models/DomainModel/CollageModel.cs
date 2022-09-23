@@ -13,7 +13,7 @@ namespace freelancer.Models
 
 
         // Collage
-        public List<Students> students { get; set; }
+        public List<Students>? students { get; set; }
 
     }
 }

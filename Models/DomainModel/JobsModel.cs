@@ -6,6 +6,7 @@ namespace freelancer.Models
 {
     public class PostJob : IJob
     {
+
         [Key]
         public int jobId { get; set; }
         public string jobTitle { get; set; }
@@ -20,6 +21,9 @@ namespace freelancer.Models
         public float jobSalary { get; set; }
         public DateTime postDate { get; set; }
         public string jobsTypes { get; set; }
+
+        //employee
+        public List<UserModel>? bookUsers { get; set; }
 
 
 
@@ -48,6 +52,9 @@ namespace freelancer.Models
         public float userJobSatisfactionRating { get; set; }
         public float employersatisfactionRating { get; set; }
 
+        //employee
+        public List<UserModel>? employees { get; set; }
+
     }
     public class DoneJob : IJob, IWork, IDoneJob
     {
@@ -75,6 +82,10 @@ namespace freelancer.Models
         // DoneJob 
         public DateTime endtDate { get; set; }
         public string testimony { get; set; }
+
+
+        //employee
+        public List<UserModel>? employees { get; set; }
 
 
 

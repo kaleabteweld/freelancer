@@ -1,4 +1,5 @@
 ﻿using freelancer.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,9 +13,12 @@ namespace freelancer.Controllers
     public class HomeController : Controller
     {
         private readonly JobServices _jobServices;
-        public HomeController(JobServices service)
+        private readonly UserManager<UserModel> userManager;
+
+        public HomeController(JobServices service, UserManager<UserModel> _userManager)
         {
             _jobServices = service;
+            userManager = _userManager;
         }
 
         public IActionResult Index()

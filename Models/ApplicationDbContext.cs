@@ -3,12 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace freelancer.Models
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<UserModel>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
+
+        public DbSet<UserModel> Users { get; set; }
 
         public DbSet<Collage> Collages { get; set; }
         public DbSet<Organizion> Organizions { get; set; }

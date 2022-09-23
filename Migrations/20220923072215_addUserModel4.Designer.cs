@@ -3,51 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using freelancer.Models;
 
 namespace freelancer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220923072215_addUserModel4")]
+    partial class addUserModel4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("DoneJobSkills", b =>
-                {
-                    b.Property<int>("doneJobjobSkillRequirementsjobId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("jobSkillRequirementsskillId")
-                        .HasColumnType("int");
-
-                    b.HasKey("doneJobjobSkillRequirementsjobId", "jobSkillRequirementsskillId");
-
-                    b.HasIndex("jobSkillRequirementsskillId");
-
-                    b.ToTable("DoneJobSkills");
-                });
-
-            modelBuilder.Entity("DoneJobUserModel", b =>
-                {
-                    b.Property<int>("JobsDonejobId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("employeesId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("JobsDonejobId", "employeesId");
-
-                    b.HasIndex("employeesId");
-
-                    b.ToTable("DoneJobUserModel");
-                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -180,96 +152,6 @@ namespace freelancer.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("PostJobSkills", b =>
-                {
-                    b.Property<int>("jobSkillRequirementsjobId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("jobSkillRequirementsskillId")
-                        .HasColumnType("int");
-
-                    b.HasKey("jobSkillRequirementsjobId", "jobSkillRequirementsskillId");
-
-                    b.HasIndex("jobSkillRequirementsskillId");
-
-                    b.ToTable("PostJobSkills");
-                });
-
-            modelBuilder.Entity("PostJobUserModel", b =>
-                {
-                    b.Property<int>("bookJobsjobId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("bookUsersId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("bookJobsjobId", "bookUsersId");
-
-                    b.HasIndex("bookUsersId");
-
-                    b.ToTable("PostJobUserModel");
-                });
-
-            modelBuilder.Entity("SkillsStudents", b =>
-                {
-                    b.Property<int>("StudentsSkillsstudentsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("skillsskillId")
-                        .HasColumnType("int");
-
-                    b.HasKey("StudentsSkillsstudentsId", "skillsskillId");
-
-                    b.HasIndex("skillsskillId");
-
-                    b.ToTable("SkillsStudents");
-                });
-
-            modelBuilder.Entity("SkillsUserModel", b =>
-                {
-                    b.Property<int>("skillsskillId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("userId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("skillsskillId", "userId");
-
-                    b.HasIndex("userId");
-
-                    b.ToTable("SkillsUserModel");
-                });
-
-            modelBuilder.Entity("SkillsWorkingJob", b =>
-                {
-                    b.Property<int>("jobSkillRequirementsskillId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("workingJobjobSkillRequirementsjobId")
-                        .HasColumnType("int");
-
-                    b.HasKey("jobSkillRequirementsskillId", "workingJobjobSkillRequirementsjobId");
-
-                    b.HasIndex("workingJobjobSkillRequirementsjobId");
-
-                    b.ToTable("SkillsWorkingJob");
-                });
-
-            modelBuilder.Entity("UserModelWorkingJob", b =>
-                {
-                    b.Property<string>("employeesId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("jobsjobId")
-                        .HasColumnType("int");
-
-                    b.HasKey("employeesId", "jobsjobId");
-
-                    b.HasIndex("jobsjobId");
-
-                    b.ToTable("UserModelWorkingJob");
-                });
-
             modelBuilder.Entity("freelancer.Models.Collage", b =>
                 {
                     b.Property<int>("institutionId")
@@ -278,15 +160,12 @@ namespace freelancer.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("institutionId");
@@ -302,14 +181,17 @@ namespace freelancer.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("courseGrade")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("courseName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("studentsId")
+                        .HasColumnType("int");
+
                     b.HasKey("courseId");
+
+                    b.HasIndex("studentsId");
 
                     b.ToTable("Courses");
                 });
@@ -321,8 +203,10 @@ namespace freelancer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("JobsDoneId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("contractDetail")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("employersatisfactionRating")
@@ -335,36 +219,33 @@ namespace freelancer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("jobDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobDuties")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobRequirements")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("jobSalary")
                         .HasColumnType("real");
 
                     b.Property<string>("jobTitle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobsTypes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("likedJobId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("minWorkingHours")
                         .HasColumnType("real");
 
-                    b.Property<int>("postByinstitutionId")
+                    b.Property<int?>("postByinstitutionId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("postDate")
@@ -374,13 +255,16 @@ namespace freelancer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("testimony")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("userJobSatisfactionRating")
                         .HasColumnType("real");
 
                     b.HasKey("jobId");
+
+                    b.HasIndex("JobsDoneId");
+
+                    b.HasIndex("likedJobId");
 
                     b.HasIndex("postByinstitutionId");
 
@@ -398,15 +282,12 @@ namespace freelancer.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("institutionId");
@@ -423,46 +304,45 @@ namespace freelancer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("bookJobId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("employmentType")
                         .HasColumnType("int");
 
                     b.Property<string>("jobDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobDuties")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobRequirements")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("jobSalary")
                         .HasColumnType("real");
 
                     b.Property<string>("jobTitle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobsTypes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("minWorkingHours")
                         .HasColumnType("real");
 
-                    b.Property<int>("postByinstitutionId")
+                    b.Property<int?>("postByinstitutionId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("postDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("jobId");
+
+                    b.HasIndex("bookJobId");
 
                     b.HasIndex("postByinstitutionId");
 
@@ -476,11 +356,35 @@ namespace freelancer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("DoneJobjobId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PostJobjobId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserModelId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("WorkingJobjobId")
+                        .HasColumnType("int");
+
                     b.Property<string>("skillName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("studentsId")
+                        .HasColumnType("int");
+
                     b.HasKey("skillId");
+
+                    b.HasIndex("DoneJobjobId");
+
+                    b.HasIndex("PostJobjobId");
+
+                    b.HasIndex("UserModelId");
+
+                    b.HasIndex("WorkingJobjobId");
+
+                    b.HasIndex("studentsId");
 
                     b.ToTable("Skills");
                 });
@@ -492,7 +396,7 @@ namespace freelancer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CollageinstitutionId")
+                    b.Property<int?>("CollageinstitutionId")
                         .HasColumnType("int");
 
                     b.Property<float>("GPA")
@@ -502,7 +406,6 @@ namespace freelancer.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("fullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("isGraduated")
@@ -577,7 +480,6 @@ namespace freelancer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("fullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("studentsId")
@@ -607,8 +509,10 @@ namespace freelancer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("WorkingJobId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("contractDetail")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("employersatisfactionRating")
@@ -618,36 +522,30 @@ namespace freelancer.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("jobDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobDuties")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobRequirements")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("jobSalary")
                         .HasColumnType("real");
 
                     b.Property<string>("jobTitle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("jobsTypes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<float>("minWorkingHours")
                         .HasColumnType("real");
 
-                    b.Property<int>("postByinstitutionId")
+                    b.Property<int?>("postByinstitutionId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("postDate")
@@ -661,39 +559,11 @@ namespace freelancer.Migrations
 
                     b.HasKey("jobId");
 
+                    b.HasIndex("WorkingJobId");
+
                     b.HasIndex("postByinstitutionId");
 
                     b.ToTable("WorkingJobs");
-                });
-
-            modelBuilder.Entity("DoneJobSkills", b =>
-                {
-                    b.HasOne("freelancer.Models.DoneJob", null)
-                        .WithMany()
-                        .HasForeignKey("doneJobjobSkillRequirementsjobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("freelancer.Models.Skills", null)
-                        .WithMany()
-                        .HasForeignKey("jobSkillRequirementsskillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("DoneJobUserModel", b =>
-                {
-                    b.HasOne("freelancer.Models.DoneJob", null)
-                        .WithMany()
-                        .HasForeignKey("JobsDonejobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("freelancer.Models.UserModel", null)
-                        .WithMany()
-                        .HasForeignKey("employeesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -747,103 +617,26 @@ namespace freelancer.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PostJobSkills", b =>
-                {
-                    b.HasOne("freelancer.Models.PostJob", null)
-                        .WithMany()
-                        .HasForeignKey("jobSkillRequirementsjobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("freelancer.Models.Skills", null)
-                        .WithMany()
-                        .HasForeignKey("jobSkillRequirementsskillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("PostJobUserModel", b =>
-                {
-                    b.HasOne("freelancer.Models.PostJob", null)
-                        .WithMany()
-                        .HasForeignKey("bookJobsjobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("freelancer.Models.UserModel", null)
-                        .WithMany()
-                        .HasForeignKey("bookUsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SkillsStudents", b =>
+            modelBuilder.Entity("freelancer.Models.Course", b =>
                 {
                     b.HasOne("freelancer.Models.Students", null)
-                        .WithMany()
-                        .HasForeignKey("StudentsSkillsstudentsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("freelancer.Models.Skills", null)
-                        .WithMany()
-                        .HasForeignKey("skillsskillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SkillsUserModel", b =>
-                {
-                    b.HasOne("freelancer.Models.Skills", null)
-                        .WithMany()
-                        .HasForeignKey("skillsskillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("freelancer.Models.UserModel", null)
-                        .WithMany()
-                        .HasForeignKey("userId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("SkillsWorkingJob", b =>
-                {
-                    b.HasOne("freelancer.Models.Skills", null)
-                        .WithMany()
-                        .HasForeignKey("jobSkillRequirementsskillId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("freelancer.Models.WorkingJob", null)
-                        .WithMany()
-                        .HasForeignKey("workingJobjobSkillRequirementsjobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("UserModelWorkingJob", b =>
-                {
-                    b.HasOne("freelancer.Models.UserModel", null)
-                        .WithMany()
-                        .HasForeignKey("employeesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("freelancer.Models.WorkingJob", null)
-                        .WithMany()
-                        .HasForeignKey("jobsjobId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany("courses")
+                        .HasForeignKey("studentsId");
                 });
 
             modelBuilder.Entity("freelancer.Models.DoneJob", b =>
                 {
+                    b.HasOne("freelancer.Models.UserModel", null)
+                        .WithMany("JobsDone")
+                        .HasForeignKey("JobsDoneId");
+
+                    b.HasOne("freelancer.Models.UserModel", null)
+                        .WithMany("likedJobs")
+                        .HasForeignKey("likedJobId");
+
                     b.HasOne("freelancer.Models.Organizion", "postBy")
                         .WithMany("DoneJobs")
-                        .HasForeignKey("postByinstitutionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("postByinstitutionId");
 
                     b.Navigation("postBy");
                 });
@@ -857,24 +650,45 @@ namespace freelancer.Migrations
 
             modelBuilder.Entity("freelancer.Models.PostJob", b =>
                 {
+                    b.HasOne("freelancer.Models.UserModel", null)
+                        .WithMany("bookJobs")
+                        .HasForeignKey("bookJobId");
+
                     b.HasOne("freelancer.Models.Organizion", "postBy")
                         .WithMany("postedJobs")
-                        .HasForeignKey("postByinstitutionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("postByinstitutionId");
 
                     b.Navigation("postBy");
                 });
 
+            modelBuilder.Entity("freelancer.Models.Skills", b =>
+                {
+                    b.HasOne("freelancer.Models.DoneJob", null)
+                        .WithMany("jobSkillRequirements")
+                        .HasForeignKey("DoneJobjobId");
+
+                    b.HasOne("freelancer.Models.PostJob", null)
+                        .WithMany("jobSkillRequirements")
+                        .HasForeignKey("PostJobjobId");
+
+                    b.HasOne("freelancer.Models.UserModel", null)
+                        .WithMany("skills")
+                        .HasForeignKey("UserModelId");
+
+                    b.HasOne("freelancer.Models.WorkingJob", null)
+                        .WithMany("jobSkillRequirements")
+                        .HasForeignKey("WorkingJobjobId");
+
+                    b.HasOne("freelancer.Models.Students", null)
+                        .WithMany("skills")
+                        .HasForeignKey("studentsId");
+                });
+
             modelBuilder.Entity("freelancer.Models.Students", b =>
                 {
-                    b.HasOne("freelancer.Models.Collage", "Collage")
+                    b.HasOne("freelancer.Models.Collage", null)
                         .WithMany("students")
-                        .HasForeignKey("CollageinstitutionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Collage");
+                        .HasForeignKey("CollageinstitutionId");
                 });
 
             modelBuilder.Entity("freelancer.Models.UserModel", b =>
@@ -894,11 +708,13 @@ namespace freelancer.Migrations
 
             modelBuilder.Entity("freelancer.Models.WorkingJob", b =>
                 {
+                    b.HasOne("freelancer.Models.UserModel", null)
+                        .WithMany("jobs")
+                        .HasForeignKey("WorkingJobId");
+
                     b.HasOne("freelancer.Models.Organizion", "postBy")
                         .WithMany("activeJobs")
-                        .HasForeignKey("postByinstitutionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("postByinstitutionId");
 
                     b.Navigation("postBy");
                 });
@@ -906,6 +722,11 @@ namespace freelancer.Migrations
             modelBuilder.Entity("freelancer.Models.Collage", b =>
                 {
                     b.Navigation("students");
+                });
+
+            modelBuilder.Entity("freelancer.Models.DoneJob", b =>
+                {
+                    b.Navigation("jobSkillRequirements");
                 });
 
             modelBuilder.Entity("freelancer.Models.Organizion", b =>
@@ -917,9 +738,36 @@ namespace freelancer.Migrations
                     b.Navigation("postedJobs");
                 });
 
+            modelBuilder.Entity("freelancer.Models.PostJob", b =>
+                {
+                    b.Navigation("jobSkillRequirements");
+                });
+
+            modelBuilder.Entity("freelancer.Models.Students", b =>
+                {
+                    b.Navigation("courses");
+
+                    b.Navigation("skills");
+                });
+
             modelBuilder.Entity("freelancer.Models.UserModel", b =>
                 {
+                    b.Navigation("bookJobs");
+
+                    b.Navigation("jobs");
+
+                    b.Navigation("JobsDone");
+
+                    b.Navigation("likedJobs");
+
                     b.Navigation("organizions");
+
+                    b.Navigation("skills");
+                });
+
+            modelBuilder.Entity("freelancer.Models.WorkingJob", b =>
+                {
+                    b.Navigation("jobSkillRequirements");
                 });
 #pragma warning restore 612, 618
         }

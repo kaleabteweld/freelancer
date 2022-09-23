@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Principal;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using freelancer.Models.Services;
 
 namespace freelancer
 {
@@ -30,10 +31,19 @@ namespace freelancer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefulatConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<UserModel, IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
+
+
 
             services.AddScoped<JobServices>();
+            services.AddScoped<CollageServices>();
+            services.AddScoped<UserServices>();
+            services.AddScoped<StudentServices>();
+
+
+
             services.AddControllersWithViews();
         }
 
