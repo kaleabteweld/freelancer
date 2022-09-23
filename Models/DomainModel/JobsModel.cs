@@ -90,4 +90,24 @@ namespace freelancer.Models
 
 
     }
+
+    public class JobFilter : IJobFilter
+    {
+        public JobFilter(Range? salary, string? location, DateTime? postDate, List<EEmploymentType>? jobTypes, List<Skills>? skills)
+        {
+            this.salary = salary;
+            this.location = location;
+            this.postDate = postDate;
+            this.jobTypes = jobTypes;
+            this.skills = skills;
+        }
+
+        public Range? salary { get; set ; }
+        public string? location { get; set ; }
+        public DateTime? postDate { get ; set ; }
+        public List<EEmploymentType>? jobTypes { get ; set; }
+        public List<Skills>? skills { get; set; }
+    }
+
+
 }

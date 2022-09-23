@@ -38,7 +38,8 @@ namespace freelancer.Models
         Range? salary { get; set; }
         string? location { get; set; }
         DateTime? postDate { get; set; }
-        List<EEmploymentType> jobTypes { get; set; }
+        List<EEmploymentType>? jobTypes { get; set; }
+        List<Skills> skills { get; set; }
 
     }
     public enum EEmploymentType

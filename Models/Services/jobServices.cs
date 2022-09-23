@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,32 +17,67 @@ namespace freelancer.Models
             _context = context;
         }
 
+        public JobFilter getFilterConfig()
+        {
+            //TODO this is only for PostJobs
+
+            float minSalary = _context.PostJobs.Min(job => job.jobSalary);
+            List<Skills> skills = _context.Skills.ToList();
+            DateTime startDate = _context.PostJobs.Min(job => job.postDate);
+
+            JobFilter filter = new JobFilter(
+                    Range.StartAt( (int) minSalary),
+                    null,
+                    startDate,
+                    null,
+                    skills);
+
+            return filter;
+        }
         public List<PostJob> GetPostJobs()
         {
             return _context.PostJobs.ToList();
         }
-        public List<PostJob> GetPostJobs(IJobFilter filter)
+        public List<PostJob> GetPostJobs(IJobFilter? filter)
         {
-            List<PostJob> jobPosts = new List<PostJob>();
+            List<PostJob> jobPosts = _context.PostJobs.Include(postJobs => postJobs.jobSkillRequirements).ToList();
+
+            if (filter == null)
+            {
+                return _context.PostJobs.ToList();
+            }
 
             if (filter.salary != null)
             {
-                jobPosts.AddRange(_context.PostJobs.Where(PostJob => (PostJob.jobSalary >= filter.salary.Value.Start.Value && PostJob.jobSalary <= filter.salary.Value.End.Value)));
+                jobPosts.Where(PostJob => (PostJob.jobSalary >= filter.salary.Value.Start.Value ));
+                //&& PostJob.jobSalary <= filter.salary.Value.End.Value
             }
             if (filter.location != null)
             {
-                jobPosts.AddRange(_context.PostJobs.Where(PostJob => PostJob.location == filter.location));
+                jobPosts.Where(PostJob => EF.Functions.Like(PostJob.location,"%"+ filter.location+"%"));
             }
             if (filter.postDate != null)
             {
-                jobPosts.AddRange(_context.PostJobs.Where(PostJob => PostJob.postDate >= filter.postDate));
+                jobPosts.Where(PostJob => PostJob.postDate >= filter.postDate);
             }
-            if (filter.jobTypes.Count != 0)
+            if(filter.jobTypes != null)
             {
-                filter.jobTypes.ForEach(employmentType => jobPosts.AddRange(_context.PostJobs.Where(PostJob => PostJob.postDate >= filter.postDate)));
+                if (filter.jobTypes.Count != 0)
+                {
+                    filter.jobTypes.ForEach(employmentType => jobPosts.Where(PostJob => PostJob.postDate >= filter.postDate));
+                }
             }
 
-            return jobPosts;
+            if (filter.skills != null)
+            {
+                if (filter.skills.Count != 0)
+                {
+                    filter.skills.ForEach(skill => 
+                        jobPosts .Where(PostJob => PostJob.jobSkillRequirements.Contains(skill)));
+                }
+            }
+
+            return jobPosts.ToList();
         }
         public void postJob(PostJob newJob)
         {

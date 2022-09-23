@@ -23,6 +23,28 @@ namespace freelancer.Controllers
 
         public IActionResult Index()
         {
+            //Skills temp = new Skills { skillId = 1};
+            //Skills temp2 = new Skills { skillId = 7 };
+
+            //List<Skills> skills = new List<Skills>();
+            //skills.Add(temp);
+            //skills.Add(temp2);
+
+
+            //JobFilter initFilter = _jobServices.getFilterConfig();
+
+            //JobFilter filter = new JobFilter(
+            //    Range.StartAt(20),
+            //    //null,
+            //    //"any were",
+            //    "hell",
+            //    null,
+            //    //DateTime.ParseExact("2021-01-01", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
+            //    //null,
+            //    null,
+            //    skills
+            //    );
+               
             List<PostJob> jobs = _jobServices.GetPostJobs();
             return View(jobs);
         }
