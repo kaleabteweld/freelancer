@@ -1,4 +1,7 @@
-﻿namespace freelancer.Models.Services
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
+
+namespace freelancer.Models.Services
 {
     public class UserServices
     {
@@ -20,6 +23,21 @@
             _context.SaveChanges();
             return;
 
+        }
+        
+        public bool doseUserHaveCollage(string userId)
+        {
+            var user = _context.Users.Include(user => user.collage).FirstOrDefault((user => user.Id == userId));
+
+            if (user == null)
+            {
+                return false;
+            }
+            if(user.collage == null)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

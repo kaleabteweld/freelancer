@@ -15,7 +15,7 @@ namespace freelancer.Models
     }
     public interface ILogInUserFrom
     {
-        public string email { get; set; }
+        public string userName { get; set; }
         public string passWord { get; set; }
     }
 }

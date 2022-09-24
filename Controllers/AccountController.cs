@@ -120,7 +120,7 @@ namespace freelancer.Controllers
             if (ModelState.IsValid)
             {
                 var result = await signInManager.PasswordSignInAsync(
-                        user.email,
+                        user.userName,
                         user.passWord,
                         user.rememberMe,
                         false);
