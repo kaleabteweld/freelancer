@@ -17,6 +17,11 @@ namespace freelancer.Models
             _context = context;
         }
 
+        public PostJob GetJobById(int id)
+        {
+            return _context.PostJobs.Find(id);
+        }
+
         public JobFilter getFilterConfig()
         {
             //TODO this is only for PostJobs

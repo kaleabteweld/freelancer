@@ -1,4 +1,5 @@
 ﻿using freelancer.Models;
+using freelancer.Models.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -14,13 +15,15 @@ namespace freelancer.Controllers
     {
         private readonly JobServices _jobServices;
         private readonly UserManager<UserModel> userManager;
-        SignInManager<UserModel> signInManager;
+        private readonly SignInManager<UserModel> signInManager;
+        private readonly UserServices userServices;
 
-        public HomeController(JobServices service, UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager)
+        public HomeController(JobServices service, UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager, UserServices _userServices)
         {
             _jobServices = service;
             userManager = _userManager;
             signInManager = _signInManager;
+           userServices = _userServices;
         }
 
         public IActionResult Index()
@@ -51,9 +54,9 @@ namespace freelancer.Controllers
                 return RedirectToAction("LogIn", "Account", new { area = "" });
             }
 
-           
 
-
+            string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
+            ViewBag.doseUserHaveCollage = userServices.doseUserHaveCollage(userId ?? "");
             List<PostJob> jobs = _jobServices.GetPostJobs();
             return View(jobs);
         }

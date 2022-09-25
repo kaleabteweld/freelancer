@@ -23,7 +23,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="BookJobs">Book Jobs</a>
                         </li>
 
                         
@@ -45,7 +45,7 @@
 
                        
                     }
-                    @if (ViewData["collages"] == null)
+                    @if (signInManager.IsSignedIn(User) && (ViewData["doseUserHaveCollage"] != null && (bool)ViewData["doseUserHaveCollage"] == false))
                     {
                         <li class="nav-item ml-auto">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="RegisterCollage">LogRegisterCollageIn</a>

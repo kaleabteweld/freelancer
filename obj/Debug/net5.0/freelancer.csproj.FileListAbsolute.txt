@@ -80,3 +80,4 @@ C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\LogIn.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\RegisterCollage.cshtml.g.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\_ViewStart.cshtml.g.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\_Layout.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Job\BookJobs.cshtml.g.cs
