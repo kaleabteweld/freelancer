@@ -4,7 +4,85 @@
     ViewBag.title = "User log in";
 }
 
-<div class="row">
+<link href="~/css/login1.css" rel="stylesheet" />
+
+
+
+<div class="login1-container">
+    <div class="login1-login1">
+
+        
+
+        <img src="~/img/rectangle231242-xc4k-800w.png"
+             alt="Rectangle231242"
+             class="login1-rectangle23" />
+
+        <div class="login1-group27">
+            <span class="login1-text"><span>Login</span></span>
+        </div>
+        <div class="login1-group9">
+            <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+        </div>
+      
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group login1-group24">
+
+                <label asp-for="userName"></label>
+                <input asp-for="userName" class="form-control" />
+                <span asp-validation-for="userName" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group login1-group23">
+
+                <label asp-for="passWord"></label>
+                <input asp-for="passWord" class="form-control" />
+                <span asp-validation-for="passWord" class="text-danger"></span>
+
+            </div>
+
+
+            <div class="form-group ">
+                <div class="login1-group35">
+                    @Html.CheckBoxFor(m => m.rememberMe)
+                    @Html.DisplayNameFor(m => m.rememberMe)
+                </div>
+               
+            </div>
+
+            
+            <div class="login1-group10">
+                <button type="submit" class="btn btn-primary">
+                    log in
+                </button>
+            </div>
+            
+
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="row">
     <div class="col-md-12">
         <form method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
@@ -39,4 +117,4 @@
         </form>
 
     </div>
-</div>
+</div>*@

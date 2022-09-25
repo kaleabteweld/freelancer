@@ -78,3 +78,5 @@ C:\Data\Projects\school\freelancer\bin\Debug\net5.0\Microsoft.Extensions.Identit
 C:\Data\Projects\school\freelancer\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\LogIn.cshtml.g.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\RegisterCollage.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\_ViewStart.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\_Layout.cshtml.g.cs

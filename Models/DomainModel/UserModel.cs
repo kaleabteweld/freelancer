@@ -74,8 +74,9 @@ namespace freelancer.Models
     public class LogInUserModel : ILogInUserFrom
     {
         [Required]
-        
-        public string email { get ; set; }
+       
+        [Display(Name = "user name")]
+        public string userName { get ; set; }
 
         [Required]
         [Display(Name = "password")]
