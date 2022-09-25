@@ -28,6 +28,7 @@ namespace freelancer.Models
         //[ForeignKey("JobsDoneId")]
         public List<DoneJob>? JobsDone { get; set; }
 
+
     }
 
     public class RegisterUserModel : IUserBaseInfo

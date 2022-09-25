@@ -26,7 +26,6 @@ namespace freelancer.Models
         public List<UserModel>? bookUsers { get; set; }
 
 
-
     }
     public class WorkingJob : IJob, IWork
     {

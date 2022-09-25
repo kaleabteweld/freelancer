@@ -1,4 +1,7 @@
-﻿namespace freelancer.Models.Services
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
+
+namespace freelancer.Models.Services
 {
     public class UserServices
     {
@@ -21,5 +24,17 @@
             return;
 
         }
+
+        public void bookJob(string userId, PostJob job)
+        {
+            var user = _context.Users.Include(user => user.bookJobs).Where(user => user.Id == userId).SingleOrDefault();
+            if (user == null)
+            {
+                return;
+            }
+            user.bookJobs.Add(job);
+        }
+
+
     }
 }

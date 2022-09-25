@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using freelancer.Models.DomainModel;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace freelancer.Models
@@ -21,6 +22,9 @@ namespace freelancer.Models
         public DbSet<PostJob> PostJobs { get; set; }
         public DbSet<WorkingJob> WorkingJobs { get; set; }
         public DbSet<DoneJob> DoneJobs { get; set; }
+
+        public DbSet<ApplicantsModel> Applicants { get; set; }
+
 
         // skills
         public DbSet<Skills> Skills { get; set; }

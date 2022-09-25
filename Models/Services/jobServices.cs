@@ -83,5 +83,8 @@ namespace freelancer.Models
         {
             _context.PostJobs.Add(newJob);
         }
+        
+        
+    
     }
 }
