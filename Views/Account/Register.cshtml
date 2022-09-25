@@ -4,6 +4,81 @@
     ViewBag.title = "User Register";
 }
 
+<link href="~/css/signup6.css" rel="stylesheet" />
+
+
+
+<div class="signup6-container">
+    <div class="signup6-signup6">
+
+        <img src="~/img/rectangle231242-xc4k-800w.png"
+             alt="Rectangle232422"
+             class="signup6-rectangle23" />
+
+        <div class="signup6-group27">
+
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group signup6-group24">
+
+                <label asp-for="fullName"></label>
+                <input asp-for="fullName" class="form-control" />
+                <span asp-validation-for="fullName" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group signup6-group25">
+                <label asp-for="userName"></label>
+                <input asp-for="userName" class="form-control" />
+                <span asp-validation-for="userName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group signup6-group26">
+                <label asp-for="phone"></label>
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group signup6-group28">
+
+                <label asp-for="email"></label>
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group signup6-group23">
+                <label asp-for="password"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+
+                <div class="signup6-group11">
+                    <button type="submit" class="btn">
+                        Register
+                    </button>
+                </div>
+        </form>
+        
+       
+        
+
+            
+
+            
+
+           
+            
+            <span class="signup6-text18"><span>Sign-Up</span></span>
+        </div>
+   
+    </div>
+</div>
+
+
+
+
+@*
 <div class="row">
     <div class="col-md-12">
         <form method="post">
@@ -68,4 +143,4 @@
         </form>
 
     </div>
-</div>
+</div>*@
