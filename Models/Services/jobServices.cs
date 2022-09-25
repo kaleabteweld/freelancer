@@ -36,7 +36,8 @@ namespace freelancer.Models
         }
         public List<PostJob> GetPostJobs()
         {
-            return _context.PostJobs.ToList();
+            var jobs = _context.PostJobs.Include(job => job.postBy).ToList();
+            return jobs;
         }
         public List<PostJob> GetPostJobs(IJobFilter? filter)
         {

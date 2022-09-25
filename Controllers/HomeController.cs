@@ -14,11 +14,13 @@ namespace freelancer.Controllers
     {
         private readonly JobServices _jobServices;
         private readonly UserManager<UserModel> userManager;
+        SignInManager<UserModel> signInManager;
 
-        public HomeController(JobServices service, UserManager<UserModel> _userManager)
+        public HomeController(JobServices service, UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager)
         {
             _jobServices = service;
             userManager = _userManager;
+            signInManager = _signInManager;
         }
 
         public IActionResult Index()
@@ -44,7 +46,14 @@ namespace freelancer.Controllers
             //    null,
             //    skills
             //    );
-               
+            if (!signInManager.IsSignedIn(HttpContext.User))
+            {
+                return RedirectToAction("LogIn", "Account", new { area = "" });
+            }
+
+           
+
+
             List<PostJob> jobs = _jobServices.GetPostJobs();
             return View(jobs);
         }

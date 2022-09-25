@@ -1,0 +1,154 @@
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: auto;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+
+    margin-bottom: 20px;
+
+    padding: 16px;
+}
+
+    .cardContainer  .icon {
+        height: 20px;
+        width: 20px;
+    }
+
+.cardContainer .head {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px;
+    }
+
+        .cardContainer .head .title {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 44px;
+            color: #000000;
+
+            margin: 0;
+        }
+
+        .cardContainer .head .cip {
+            background: #D9D9D9;
+            border-radius: 29px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1px;
+            min-width: 80px;
+            max-height: 30px;
+            margin: 8px;
+        }
+            .cardContainer .head .cip .type {
+                margin: 0;
+            }
+
+        .cardContainer .head .book {
+            margin-left: auto;
+        }
+
+
+
+.cardContainer .body {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px;
+    }
+
+        .cardContainer .body .org {
+            border: 2px solid #5E2781;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 5px;
+        }
+
+            .cardContainer .body .org .avatar {
+                border-radius: 50%;
+                height: 50px;
+                width: 50px;
+            }
+
+            .cardContainer .body .org .name {
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 36px;
+                color: #0F0F0F;
+                margin: 0;
+                margin-left: 10px;
+            }
+
+            .cardContainer .body .org .iconGroup {
+                display: flex;
+                flex-direction: row;
+                margin-left: auto;
+                justify-content: space-evenly;
+                min-width: 100px;
+            }
+
+                .cardContainer .body .org .iconGroup .icon {
+                }
+
+    .cardContainer .foot {
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+        justify-content: space-between;
+    }
+
+        .cardContainer .foot .time {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            color: #434343;
+            margin: 0;
+            margin-top: auto;
+        }
+
+        .cardContainer .foot .go {
+            border: none;
+            border-radius: 50px;
+            min-width: 100px;
+            background-color: #5E2781;
+
+            padding: 8px;
+        }
+
+
+.jobInfo {
+    margin-top: 19px;
+    font-size: 16px;
+}
+
+.jobInfo .pr {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29px;
+    margin: 0;
+    /* identical to box height */
+
+
+    color: #020202;
+}
+
+.jobInfo .loc {
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29px;
+    margin: 0;
+    /* identical to box height */
+
+
+    color: #020202;
+}

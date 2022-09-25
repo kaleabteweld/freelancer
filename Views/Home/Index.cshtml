@@ -3,48 +3,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+
 @foreach (var item in Model)
 {
-    <div>
-        <p>
-            jobTitle: @item.jobTitle
-        </p>
-
-        <p>
-            jobDescription: @item.jobDescription
-        </p>
-
-        <p>
-            location: @item.location
-        </p>
-
-        <p>
-            employmentType: @item.employmentType.ToString()
-        </p>
-
-        <p>
-            jobRequirements: @item.jobRequirements
-        </p>
-
-        <p>
-            jobDuties: @item.jobDuties
-        </p>
-
-        <p>
-            minWorkingHours: @item.minWorkingHours.ToString()
-        </p>
-
-        <p>
-            jobSalary: @item.jobSalary.ToString()
-        </p>
-
-        <p>
-            postDate: @item.postDate.ToShortDateString()
-        </p>
-
-        <p>
-            jobsTypes: @item.jobsTypes
-        </p>
-
-    </div>
+    @Html.Partial("_JobCard",item);
 }

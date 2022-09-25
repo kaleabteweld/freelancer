@@ -1,6 +1,54 @@
-@model JobCard
+@model PostJob
 
 
-<div>
+<link href="~/css/jobCard.css" rel="stylesheet" />
+
+<div class="cardContainer">
+
+    <div class="head">
+
+        <p class="title"> @Model.jobTitle </p>
+
+        <div class="cip">
+            <p class="type"> @Model.jobsTypes </p>
+        </div>
+
+        <div class="book">
+            <img class="icon" src="~/img/Vector.svg"/>
+        </div>
+    </div>
+
+    <div class="body">
+
+        <div class="org">
+            <img class="avatar" src="https://i.pravatar.cc/150?img=@Model.postBy.institutionId"/>
+            <p class="name"> @Model.postBy.name </p>
+
+            <div class="iconGroup">
+                <img src="~/img/Vector-3.svg" class="icon" />
+                <img src="~/img/Vector-2.svg" class="icon" />
+            </div>
+
+        </div>
+
+        <div class="jobInfo">
+            <p class="loc">
+                @Model.location
+            </p>
+            <p class="pr">
+                @Model.employmentType | @Model.jobSalary BIRR
+            </p>
+        </div>
+
+    </div>
+
+    <div class="foot">
+        <p class="time">
+            @Model.postDate.ToShortDateString()
+        </p>
+        <button class="go">
+            <img src="~/img/Vector-1.svg" class="icon" />
+        </button>
+    </div>
 
 </div>
