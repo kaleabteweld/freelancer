@@ -1,0 +1,82 @@
+body {
+    background-image: url('./luke-chesser-eICUFSeirc0-unsplash.jpg');
+    background-position: center;
+    background-size: auto;
+}
+
+
+.filttercontainer {
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+
+
+    width: 300px;
+
+    padding: 18px;
+
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.filttercontainer .from-Group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+
+    width: 100%;
+}
+
+.filttercontainer .from-Group .text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+
+
+    color: white;
+
+    margin-bottom: 5px;
+}
+
+.filttercontainer .from-Group .input {
+    min-width: -webkit-fill-available;
+    border-radius: 8px;
+    border: none;
+    padding: 5px;
+    outline: none;
+}
+
+.filttercontainer .foot {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.filttercontainer .foot .button {
+    padding: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filttercontainer .foot .reset {
+    background-color: #FF7878;
+
+}
+
+.filttercontainer .foot .submit {
+    background-color: #78FF9E;
+
+}

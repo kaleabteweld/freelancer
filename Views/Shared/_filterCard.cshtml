@@ -1,0 +1,41 @@
+﻿
+
+<link href="~/css/filterCard.css" rel="stylesheet" />
+<form action="POST" class="filttercontainer">
+
+    <div class="salary from-Group">
+        <label class="text" for="range"> Salary</label>
+        <input class="input" id="range" type="range" name="salary" min="2,000" max="100,000">
+    </div>
+
+    <div class="location from-Group">
+        <label class="text" for="location"> Location</label>
+        <input class="input" id="location" name="location" type="text" placeholder="enter location">
+    </div>
+
+    <div class="date from-Group">
+        <label class="text" for="date">Post Date From</label>
+        <input class="input" type="date" name="date" id="date">
+    </div>
+
+    <div class="skill from-Group">
+        <label class="text" for="skills">skills</label>
+        <select class="input" id="skills" name="skills">
+            <option value="">skill 1</option>
+            <option value="">skill 2</option>
+            <option value="">skill 3</option>
+            <option value="">skill 4</option>
+        </select>
+    </div>
+
+    <div class="foot">
+        <a class="button reset">
+            <img class="icon" src="./Vector.svg" alt="" srcset="">
+        </a>
+
+        <a class="button submit" type="submit">
+            <img class="icon" src="./Group.svg" alt="" srcset="">
+        </a>
+    </div>
+
+</form>
