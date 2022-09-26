@@ -1,0 +1,11 @@
+﻿@model List<PostJob>
+@{
+    ViewData["Title"] = "Applied Jobs";
+}
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("_JobCard",item)
+    ;
+}

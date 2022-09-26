@@ -29,6 +29,33 @@ namespace freelancer.Models
     }
     public class WorkingJob : IJob, IWork
     {
+        public WorkingJob(PostJob postJob, string contractDetail, List<UserModel> employees)
+        {
+            this.jobTitle = postJob.jobTitle;
+            this.jobDescription = postJob.jobDescription;
+            this.location = postJob.location;
+            this.postBy = postJob.postBy;
+            this.employmentType = postJob.employmentType;
+            this.jobRequirements = postJob.jobRequirements;
+            this.jobSkillRequirements = postJob.jobSkillRequirements;
+            this.jobDuties = postJob.jobDuties;
+            this.minWorkingHours = postJob.minWorkingHours;
+            this.jobSalary = postJob.jobSalary;
+            this.postDate = postJob.postDate;
+            this.jobsTypes = postJob.jobsTypes;
+
+
+            this.startDate = postJob.postDate;
+            this.contractDetail = contractDetail;
+            this.userJobSatisfactionRating = 0;
+            this.employersatisfactionRating = 0;
+            this.employees = employees;
+
+        }
+        public WorkingJob()
+        {
+        }
+
         [Key]
         public int jobId { get; set; }
         public string jobTitle { get; set; }

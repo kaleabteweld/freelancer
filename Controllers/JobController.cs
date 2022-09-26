@@ -11,14 +11,18 @@ namespace freelancer.Controllers
     {
         private readonly JobServices jobServices;
         private readonly UserServices userServices;
+        private readonly ApplicantsServices applicantsServices;
+
+
 
         private readonly SignInManager<UserModel> signInManager;
 
-        public JobController(JobServices jobServices, UserServices userServices, SignInManager<UserModel> signInManager)
+        public JobController(JobServices jobServices, UserServices userServices, SignInManager<UserModel> signInManager, ApplicantsServices applicantsServices)
         {
             this.jobServices = jobServices;
             this.userServices = userServices;
             this.signInManager = signInManager;
+            this.applicantsServices = applicantsServices;
         }
 
         public IActionResult Book(int jobId)
@@ -65,5 +69,34 @@ namespace freelancer.Controllers
 
             return View(myJobs);
         }
+
+        public IActionResult AppliedJobs()
+        {
+            string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
+            if (userId == null)
+            {
+                return NotFound();
+            }
+            List<PostJob> appliedJobs = applicantsServices.getUserAppliedJobs(userId);
+            return View(appliedJobs);
+        }
+
+        // later chage to post, with cv upload
+        public IActionResult ApplyJob(int jobid)
+        {
+            string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
+            var postJob = jobServices.GetJobById(jobid);
+            if(postJob == null)
+            {
+                return NotFound();
+            }
+           if( applicantsServices.isApplyed(userId, postJob))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            applicantsServices.ApplyJob(userId, postJob);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
+ 

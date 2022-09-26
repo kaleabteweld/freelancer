@@ -13,6 +13,11 @@ namespace freelancer.Models.Services
             _context = context;
         }
 
+        public UserModel getUserById(string userId)
+        {
+           return _context.Users.Include(user => user.jobs).Where(user => user.Id == userId).SingleOrDefault();
+        }
+
         public List<PostJob> userBookJobs (string userId)
         {
             var user = _context.Users.Include(user => user.bookJobs).Where(user => user.Id == userId).SingleOrDefault();
@@ -107,6 +112,13 @@ namespace freelancer.Models.Services
             }
 
             return user.jobs?? new List<WorkingJob>();
+        }
+
+        public void addWorkingJob (WorkingJob job, string userId)
+        {
+            var user = _context.Users.Include(user => user.jobs).FirstOrDefault((user => user.Id == userId));
+            user.jobs.Add(job);
+
         }
     }
 }

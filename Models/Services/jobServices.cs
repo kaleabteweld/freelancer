@@ -19,7 +19,7 @@ namespace freelancer.Models
 
         public PostJob GetJobById(int id)
         {
-            return _context.PostJobs.Find(id);
+            return _context.PostJobs.Include(postJobs => postJobs.postBy).Include(postJobs => postJobs.jobSkillRequirements).Where(job => job.jobId == id).SingleOrDefault();
         }
 
         public JobFilter getFilterConfig()
@@ -88,6 +88,13 @@ namespace freelancer.Models
         public void postJob(PostJob newJob)
         {
             _context.PostJobs.Add(newJob);
+        }
+
+        public WorkingJob newWorkingJob(WorkingJob job)
+        {
+            _context.WorkingJobs.Add(job);
+            _context.SaveChanges();
+            return job;
         }
         
         

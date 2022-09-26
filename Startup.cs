@@ -41,6 +41,9 @@ namespace freelancer
             services.AddScoped<CollageServices>();
             services.AddScoped<UserServices>();
             services.AddScoped<StudentServices>();
+            services.AddScoped<ApplicantsServices>();
+            services.AddScoped<OrganizionsServices>();
+
 
 
 

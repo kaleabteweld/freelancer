@@ -78,6 +78,13 @@
 
             <div class="groupIcon endToend">
                 <div class="navLineConta">
+                    <a class="navLine" asp-area="" asp-controller="Job" asp-action="AppliedJobs">Applied Jobs</a>
+                </div>
+                <img class="icon" src="~/img/sdi/Vector4.svg">
+            </div>
+
+            <div class="groupIcon endToend">
+                <div class="navLineConta">
 
                    @if(signInManager.IsSignedIn(User)){
                         <form method="post" asp-action="LogOut" asp-controller="Account">
