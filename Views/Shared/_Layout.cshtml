@@ -56,18 +56,21 @@
 
 
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-        <div class="col">
+        <div class="col-3" style="margin-left:auto;">
                 @Html.Partial("_SideBar",await signInManager.UserManager.GetUserAsync(User));
         </div>
-        <div class="col-6">
+        <div class="col-4">
                 <main role="main">
                     @RenderBody()
                 </main>
         </div>
-        <div class="col">
-            @Html.Partial("_filterCard");
+        <div class="col-3" style="margin-right:auto;">
+                @if (IsSectionDefined("filtter"))
+                {
+                    @RenderSection("filtter")
+                }
         </div>
         
         </div>

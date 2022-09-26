@@ -1,26 +1,20 @@
-body {
-    background-image: url('./luke-chesser-eICUFSeirc0-unsplash.jpg');
-    background-position: center;
-    background-size: auto;
+.tCon{
+    position: relative;
 }
-
-
 .filttercontainer {
     border-radius: 30px;
     display: flex;
     flex-direction: column;
-
-
     width: 300px;
-
     padding: 18px;
-
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+
 }
 
 .filttercontainer .from-Group {
@@ -69,6 +63,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
 }
 
 .filttercontainer .foot .reset {

@@ -46,7 +46,7 @@ namespace freelancer.Models
         }
         public List<PostJob> GetPostJobs(IJobFilter? filter)
         {
-            List<PostJob> jobPosts = _context.PostJobs.Include(postJobs => postJobs.jobSkillRequirements).ToList();
+            var jobPosts = _context.PostJobs.Include(postJobs => postJobs.jobSkillRequirements).Include(postJobs => postJobs.postBy).ToList();
 
             if (filter == null)
             {
@@ -55,22 +55,23 @@ namespace freelancer.Models
 
             if (filter.salary != null)
             {
-                jobPosts.Where(PostJob => (PostJob.jobSalary >= filter.salary.Value.Start.Value ));
+                jobPosts = jobPosts.Where(PostJob => (PostJob.jobSalary >= filter.salary.Value.Start.Value )).ToList();
                 //&& PostJob.jobSalary <= filter.salary.Value.End.Value
             }
             if (filter.location != null)
             {
-                jobPosts.Where(PostJob => EF.Functions.Like(PostJob.location,"%"+ filter.location+"%"));
+                jobPosts =  jobPosts.Where(postJob => postJob.location.Contains(filter.location)
+                ).ToList();
             }
             if (filter.postDate != null)
             {
-                jobPosts.Where(PostJob => PostJob.postDate >= filter.postDate);
+                jobPosts = jobPosts.Where(PostJob => PostJob.postDate >= filter.postDate).ToList();
             }
             if(filter.jobTypes != null)
             {
                 if (filter.jobTypes.Count != 0)
                 {
-                    filter.jobTypes.ForEach(employmentType => jobPosts.Where(PostJob => PostJob.postDate >= filter.postDate));
+                    filter.jobTypes.ForEach(employmentType => jobPosts = jobPosts.Where(PostJob => PostJob.postDate >= filter.postDate).ToList());
                 }
             }
 
@@ -78,8 +79,8 @@ namespace freelancer.Models
             {
                 if (filter.skills.Count != 0)
                 {
-                    filter.skills.ForEach(skill => 
-                        jobPosts .Where(PostJob => PostJob.jobSkillRequirements.Contains(skill)));
+                    filter.skills.ForEach(skill =>
+                        jobPosts = jobPosts.Where(PostJob => PostJob.jobSkillRequirements.Contains(skill)).ToList());
                 }
             }
 

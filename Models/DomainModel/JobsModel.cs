@@ -135,5 +135,24 @@ namespace freelancer.Models
         public List<Skills>? skills { get; set; }
     }
 
+    public class JobFilterInput
+    {
+        public JobFilterInput(int salary, string? location, DateTime? postDate, string skills)
+        {
+            this.salary = salary;
+            this.location = location;
+            this.postDate = postDate;
+            this.skills = skills;
+        }
+
+        public JobFilterInput() { }
+
+        public int salary { get; set; }
+        public string? location { get; set; }
+        public DateTime? postDate { get; set; }
+        //public List<EEmploymentType>? jobTypes { get; set; }
+        public string skills { get; set; }
+    }
+
 
 }

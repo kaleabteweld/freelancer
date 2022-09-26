@@ -2,6 +2,7 @@
 using freelancer.Models.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -17,13 +18,17 @@ namespace freelancer.Controllers
         private readonly UserManager<UserModel> userManager;
         private readonly SignInManager<UserModel> signInManager;
         private readonly UserServices userServices;
+        private readonly SkillsServices skillsServices;
 
-        public HomeController(JobServices service, UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager, UserServices _userServices)
+
+        public HomeController(JobServices service, UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager, UserServices _userServices, SkillsServices _skillsServices)
         {
             _jobServices = service;
             userManager = _userManager;
             signInManager = _signInManager;
            userServices = _userServices;
+            skillsServices = _skillsServices;
+
         }
 
         public IActionResult Index()
@@ -36,19 +41,17 @@ namespace freelancer.Controllers
             //skills.Add(temp2);
 
 
-            //JobFilter initFilter = _jobServices.getFilterConfig();
+            JobFilter initFilter = _jobServices.getFilterConfig();
+            var selectSkillsList = initFilter.skills.Select(skill => new SelectListItem()
+            {
+                Text = skill.skillName,
+                Value = skill.skillId.ToString(),
+                Selected = false
+            });
+            ViewBag.selectSkillsList = selectSkillsList;
+            ViewBag.initFilter = initFilter;
 
-            //JobFilter filter = new JobFilter(
-            //    Range.StartAt(20),
-            //    //null,
-            //    //"any were",
-            //    "hell",
-            //    null,
-            //    //DateTime.ParseExact("2021-01-01", "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
-            //    //null,
-            //    null,
-            //    skills
-            //    );
+            
             if (!signInManager.IsSignedIn(HttpContext.User))
             {
                 return RedirectToAction("LogIn", "Account", new { area = "" });
@@ -70,6 +73,49 @@ namespace freelancer.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        [HttpPost]
+        public IActionResult Index(JobFilterInput jobFilter)
+        {
+            JobFilter initFilter = _jobServices.getFilterConfig();
+            var selectSkillsList = initFilter.skills.Select(skill => new SelectListItem()
+            {
+                Text = skill.skillName,
+                Value = skill.skillId.ToString(),
+                Selected = false
+            });
+            ViewBag.selectSkillsList = selectSkillsList;
+            ViewBag.initFilter = initFilter;
+
+
+            if (!signInManager.IsSignedIn(HttpContext.User))
+            {
+                return RedirectToAction("LogIn", "Account", new { area = "" });
+            }
+
+
+            string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
+            ViewBag.doseUserHaveCollage = userServices.doseUserHaveCollage(userId ?? "");
+
+            List<Skills> skillsList = new List<Skills>();
+            if (jobFilter.skills != null)
+            {
+                Skills skills = skillsServices.getSkillById(int.Parse(jobFilter.skills));
+                skillsList.Add(skills);
+            }
+            
+
+            JobFilter jobFilter1 = new JobFilter(
+                new Range(jobFilter.salary, 10000000),
+                jobFilter.location,
+                jobFilter.postDate,
+                null,
+                skillsList
+                );
+
+            List<PostJob> jobs = _jobServices.GetPostJobs(jobFilter1);
+            return View(jobs);
+
         }
     }
 }
