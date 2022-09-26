@@ -97,5 +97,16 @@ namespace freelancer.Models.Services
             }
             return true;
         }
+
+        public List<WorkingJob> GetWorkingJobs (string userId)
+        {
+            var user = _context.Users.Include(user => user.jobs).Where(user => user.Id == userId).SingleOrDefault();
+            if (user == null)
+            {
+                return new List<WorkingJob>();
+            }
+
+            return user.jobs?? new List<WorkingJob>();
+        }
     }
 }

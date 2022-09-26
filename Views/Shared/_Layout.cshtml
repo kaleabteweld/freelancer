@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -22,10 +23,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="BookJobs">Book Jobs</a>
-                        </li>
-
                         
                     </ul>
                     @if(signInManager.IsSignedIn(User)){
@@ -56,11 +53,24 @@
                 </div>
             </div>
         </nav>
+
+
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        <div class="row">
+        <div class="col">
+                @Html.Partial("_SideBar",await signInManager.UserManager.GetUserAsync(User));
+        </div>
+        <div class="col-6">
+                <main role="main">
+                    @RenderBody()
+                </main>
+        </div>
+        <div class="col">
+            
+        </div>
+        
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">

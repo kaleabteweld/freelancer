@@ -1,0 +1,131 @@
+﻿.sideBarContainer {
+    min-height: 90vh;
+    /* min-width: 20vw; */
+    /*max-width: 20vw;*/
+    width: auto;
+    border-radius: 30px;
+    padding: 8px;
+    margin: 10px;
+
+    position: relative;
+}
+
+
+    .sideBarContainer .userBlock {
+        border-radius: 30px;
+        display: flex;
+        flex-direction: row;
+        min-width: 100%;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+        .sideBarContainer .userBlock .avatar {
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+        }
+
+    .sideBarContainer .groupIcon {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        min-width: max-content;
+    }
+
+    .sideBarContainer .endToend {
+        display: flex;
+        justify-content: space-between;
+        min-width: -webkit-fill-available;
+        padding: 10px;
+    }
+
+    .sideBarContainer .groupIcon .icon {
+        height: 20px;
+        width: 20px;
+    }
+
+    .sideBarContainer .userBlock .textBolce {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        font-size: 17px;
+        font-weight: bold;
+        color: white;
+        max-height: 100%;
+        margin-left: 15px;
+    }
+
+        .sideBarContainer .userBlock .textBolce p {
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            margin: 4px;
+        }
+
+        .sideBarContainer .userBlock .textBolce .nameBolck {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+    .sideBarContainer .navtionText {
+        margin: 5px;
+        margin-top: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+
+        
+       
+    }
+.tempPos {
+    position: fixed;
+    min-width: 413px;
+}
+
+.sideBarContainer .navtion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 100%;
+    padding: 9px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    
+}
+
+    .sideBarContainer .navtion .groupIcon:last-child {
+        margin-top: 20px;
+    }
+    .sideBarContainer .navtion .navLineConta {
+            padding: 10px;
+        }
+
+    .sideBarContainer .navtion .navLine {
+        outline: none;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 29px;
+        color: white;
+
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+        .sideBarContainer .navtion :hover {
+            text-decoration-line: underline;
+            text-underline-offset: 10px;
+        }

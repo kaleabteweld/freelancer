@@ -52,5 +52,18 @@ namespace freelancer.Controllers
 
             return View(postJobs);
         }
+
+        public IActionResult MyJobs()
+        {
+            string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
+            if (userId == null)
+            {
+                return NotFound();
+            }
+
+            List<WorkingJob> myJobs = userServices.GetWorkingJobs(userId);
+
+            return View(myJobs);
+        }
     }
 }
