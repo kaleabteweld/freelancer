@@ -1,0 +1,18 @@
+﻿@model CvUploadInput;
+
+<link href="~/css/cVuploadCard.css" rel="stylesheet" />
+
+    <form enctype="multipart/form-data" method="post" asp-action="UploadCv" asp-controller="Job" class="fileUploadCont">
+
+    <input asp-for="postJobId" style="display: none;" value="@((ViewBag.postJobId??-1))">
+    <label class="mask" for="fileUpload">
+        <img class="icon" src="~/img/upload.svg" alt="">
+    </label>
+    <input type="file" name="file" class="input" id="fileUpload" accept="application/pdf" />
+
+    <div class="foot">
+        <button class="btnn" type="submit">
+            Up Load
+        </button>
+    </div>
+</form>

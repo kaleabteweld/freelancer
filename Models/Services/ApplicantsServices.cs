@@ -106,5 +106,18 @@ namespace freelancer.Models.Services
 
 
         }
+
+        public void addCv(string userId, int postWorkId,string uploadUrl)
+        {
+            var applicants = _context.Applicants.Where(applicants => applicants.applicantId == userId && applicants.PostJobId == postWorkId).SingleOrDefault();
+ 
+            if (applicants == null)
+            {
+               return ;
+            }
+            applicants.cvUploadLoc = uploadUrl;
+            _context.SaveChanges();
+
+        }
     }
 }

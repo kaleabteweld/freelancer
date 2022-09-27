@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 
@@ -76,6 +77,22 @@ namespace freelancer.Models
         List<DoneJob> GetDoneJobs(IJobFilter filter);
         void marktJobAsDone(WorkingJob workingJob, IDoneJob doneinfo);
 
+    }
+    public class CvUploadInput
+    {
+        public CvUploadInput()
+        {
+
+        }
+
+        public CvUploadInput(IFormFile file, int postJobId)
+        {
+            //this.iFormFile = iFormFile;
+            this.postJobId = postJobId;
+        }
+
+       // public IFormFile iFormFile;
+        public int postJobId;
     }
 }
 

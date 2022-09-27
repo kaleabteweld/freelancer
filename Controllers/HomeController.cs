@@ -61,6 +61,8 @@ namespace freelancer.Controllers
             string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
             ViewBag.doseUserHaveCollage = userServices.doseUserHaveCollage(userId ?? "");
             List<PostJob> jobs = _jobServices.GetPostJobs();
+
+
             return View(jobs);
         }
 

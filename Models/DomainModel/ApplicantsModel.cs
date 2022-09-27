@@ -24,5 +24,7 @@ namespace freelancer.Models.DomainModel
 
         public string applicantId { get; set; }
         public UserModel applicant { get; set; }
+
+        public string cvUploadLoc { get; set;}
     }
 }
