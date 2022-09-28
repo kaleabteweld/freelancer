@@ -143,8 +143,24 @@ namespace freelancer.Controllers
             }
         }
 
+        public IActionResult JobDetai(int jobId)
+        {
 
-    
+            string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
+            PostJob postJob = jobServices.GetJobById(jobId);
+            if (postJob == null || userId == null)
+            {
+                return NotFound();
+            }
+            ViewBag.postJobId = postJob.jobId;
+            ViewBag.appledFlag = applicantsServices.isApplyed(userId,postJob);
+
+
+            return View(postJob);
+        }
+
+
+
     }
 }
  

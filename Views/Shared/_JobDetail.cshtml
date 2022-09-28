@@ -1,16 +1,19 @@
-﻿
+﻿@model PostJob;
+
+<link href="~/css/JobDetai.css" rel="stylesheet" />
+
 
 <div class="JobDcontainer">
 
     <div class="nav">
         <div class="navHade">
-            <img src="ellipse162941-qes2-200h.png" alt="Ellipse162941" class="avater" />
-            <p class="title">Job Title</p>
+            <img src="https://i.pravatar.cc/150?img=@Model.postBy.institutionId" class="avater" />
+            <p class="title">@Model.jobTitle</p>
         </div>
 
         <div class="icon-Group">
-            <img src="vector2941-3fuj.svg" alt="Vector2941" class="icon" />
-            <img src="vector2941-qt6j.svg" alt="Vector2941" class="icon" />
+            <img src="~/img/Vector-3.svg" alt="Vector2941" class="icon" />
+            <img src="~/img/Vector-2.svg" alt="Vector2941" class="icon" />
         </div>
     </div>
 
@@ -23,7 +26,7 @@
             </div>
 
             <div class="text">
-                Lorem ipsum
+                @Model.postBy.name
             </div>
         </div>
 
@@ -33,7 +36,7 @@
             </div>
 
             <div class="text">
-                Lorem ipsum
+                @Model.jobDuties
             </div>
         </div>
 
@@ -43,7 +46,7 @@
             </div>
 
             <div class="text">
-                Lorem ipsum
+                @Model.location
             </div>
         </div>
 
@@ -53,7 +56,7 @@
             </div>
 
             <div class="text">
-                Lorem ipsum
+                @Model.jobSalary BIRR
             </div>
         </div>
 
@@ -63,15 +66,7 @@
             </div>
 
             <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur efficitur dui feugiat est dapibus dignissim tempus eu
-                m.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur efficitur dui feugiat est dapibus dignissim tempus eu
-                m. zLorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur efficitur dui feugiat est dapibus dignissim tempus eu
-                m.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Curabitur efficitur dui feugiat est dapibus dignissim tempus eu
-                m
+                @Model.jobDescription
             </div>
         </div>
 
@@ -81,32 +76,34 @@
             </div>
 
             <li class="text list">
-                Lorem ipsum
+                @Model.jobRequirements
             </li>
 
-            <li class="text list">
-                Lorem ipsum
-            </li>
-
-            <li class="text list">
-                Lorem ipsum
-            </li>
 
         </div>
 
         <div class="text-bolck">
             <div class="title">
-                Job Requirements
+                employment Type
             </div>
 
             <div class="text">
-                Lorem ipsum
+                @Model.employmentType
             </div>
         </div>
 
 
         <div class="foot">
-            <a class="btnn">Apply Now</a>
+            @if (ViewBag.appledFlag == null && ViewBag.appledFlag == false)
+            {
+                <a href="@Url.Action("ApplyJob", "Job" , new { jobId=Model.jobId })" class="btnn">Apply Now</a>
+
+            }
+            else{
+                <p class="btnn">
+                    in Progress
+                </p>
+            }
         </div>
 
     </div>

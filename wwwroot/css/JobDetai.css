@@ -1,0 +1,121 @@
+body {
+    background-image: url('./luke-chesser-eICUFSeirc0-unsplash.jpg');
+    background-size: cover;
+}
+
+.JobDcontainer {
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+
+    margin: auto;
+    min-width: 100%;
+
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.JobDcontainer .nav {
+    display: flex;
+
+    margin-bottom: 20px;
+}
+
+.JobDcontainer .nav .navHade {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.JobDcontainer .nav .navHade .avater {
+    height: 50px;
+    width: 50px;
+    border-radius:50%;
+}
+
+.JobDcontainer .nav .navHade .title {
+    color: white;
+    margin: 0;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.JobDcontainer .nav .icon-Group {
+    margin-left: auto;
+    display: flex;
+    justify-content: space-evenly;
+    width: 20%;
+
+}
+
+.JobDcontainer .nav .icon-Group .icon {
+    height: 30px;
+    width: 30px;
+}
+
+.JobDcontainer .main {
+    display: flex;
+    flex-direction: column;
+}
+
+.JobDcontainer .main .text-bolck {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    justify-content: center;
+
+    gap: 4px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.JobDcontainer .main .text-bolck .title {
+    color: white;
+    margin: 0;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.JobDcontainer .main .text-bolck .text {
+    color: rgb(214, 205, 221);
+    margin: 0;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.JobDcontainer .main .text-bolck .list {
+    list-style-type: circle;
+    margin-left: 10px;
+}
+
+.JobDcontainer .main .foot {
+    display: flex;
+    justify-content: end;
+
+    margin-top: 10px;
+
+    padding: 10px;
+}
+
+.JobDcontainer .main .foot .btnn {
+    outline: none;
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    background-color: #5E2781;
+    color: white;
+    font-weight: bold;
+
+
+
+}

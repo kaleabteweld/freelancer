@@ -39,7 +39,7 @@ namespace freelancer.Models.Services
         public void ApplyJob(string userId,PostJob job)
         {
             var user = _context.Users.Find(userId);
-            if(user == null)
+            if(user == null || job == null)
             {
                 return;
             }
@@ -48,7 +48,8 @@ namespace freelancer.Models.Services
                 applicant = user,
                 applicantId = userId,
                 PostJob = job,
-                PostJobId = job.jobId
+                PostJobId = job.jobId,
+                cvUploadLoc=""
             };
 
             _context.Applicants.Add(applicantsModel);

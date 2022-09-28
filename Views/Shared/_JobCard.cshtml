@@ -49,7 +49,7 @@
         <p class="time">
             @Model.postDate.ToShortDateString()
         </p>
-        <a class="go" href="@Url.Action("ApplyJob", "Job" , new { jobId=Model.jobId })">
+        <a class="go" href="@Url.Action("JobDetai", "Job" , new { jobId=Model.jobId })">
             <img src="~/img/Vector-1.svg" class="icon" />
         </a>
     </div>

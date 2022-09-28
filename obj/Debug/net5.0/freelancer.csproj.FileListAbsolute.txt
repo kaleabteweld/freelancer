@@ -178,4 +178,5 @@ C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\_cvUpload
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\_orgCard.cshtml.g.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Organizions\ListUserOrg.cshtml.g.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Organizions\ListOrg.cshtml.g.cs
-C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\JobDetail.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Job\JobDetai.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\_JobDetail.cshtml.g.cs
