@@ -11,21 +11,21 @@
 <body>
 
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="tempNav navbar navbar-expand-sm navbar-toggleable-sm border-bottom mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">freelancer</a>
+                <a class="navbar-brand Temptitle" asp-area="" asp-controller="Home" asp-action="Index">freelancer</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                        </li>*@
                         
                     </ul>
-                    @if(signInManager.IsSignedIn(User)){
+                   @* @if(signInManager.IsSignedIn(User)){
                         <form method="post" asp-action="LogOut" asp-controller="Account">
                             <li class="nav-item ml-auto">
                                 <button type="submit" class="nav-link text-dark" >LogOut</button>
@@ -41,11 +41,11 @@
                         </li>
 
                        
-                    }
+                    }*@
                     @if (signInManager.IsSignedIn(User) && (ViewData["doseUserHaveCollage"] != null && (bool)ViewData["doseUserHaveCollage"] == false))
-                    {
+                        {
                         <li class="nav-item ml-auto">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="RegisterCollage">LogRegisterCollageIn</a>
+                            <a class="nav-link tempa" asp-area="" asp-controller="Account" asp-action="RegisterCollage">Register Your Collage</a>
                         </li>
                     }
                     
