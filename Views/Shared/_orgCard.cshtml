@@ -1,0 +1,49 @@
+﻿@model Organizion
+
+<link href="~/css/orgCard.css" rel="stylesheet" />
+
+<div class="Orgcontainer">
+
+    <div class="nav">
+        <img class="avtar" src="https://i.pravatar.cc/150?img=@Model.institutionId" alt="">
+        <p class="name">
+            @Model.name
+        </p>
+        <div class="iocn-Group">
+            <img class="icon" src="~/img/Vector-3.svg" alt="">
+            <img class="icon" src="~/img/Vector-2.svg" alt="">
+            <img class="icon" src="~/img/like.svg" alt="">
+        </div>
+    </div>
+
+    <div class="main">
+
+        <div class="workCount">
+            <p class="title">
+                Post Work
+            </p>
+            <p class="conut">
+                @Model.postedJobs.Count()
+            </p>
+        </div>
+
+        <div class="workCount">
+            <p class="title">
+                Active Work
+            </p>
+            <p class="conut">
+                @Model.activeJobs.Count()
+            </p>
+        </div>
+
+        <div class="workCount">
+            <p class="title">
+                Concluded Work
+            </p>
+            <p class="conut">
+                @Model.DoneJobs.Count()
+            </p>
+        </div>
+
+    </div>
+</div>

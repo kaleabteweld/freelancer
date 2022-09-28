@@ -175,3 +175,6 @@ C:\Users\user\Desktop\Free\freelancer\obj\Debug\net5.0\freelancer.genruntimeconf
 C:\Data\Projects\school\freelancer\bin\Debug\net5.0\freelancer.StaticWebAssets.xml
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\_filterCard.cshtml.g.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\_cvUpload.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\_orgCard.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Organizions\ListUserOrg.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Organizions\ListOrg.cshtml.g.cs

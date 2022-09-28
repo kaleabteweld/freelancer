@@ -21,6 +21,10 @@ namespace freelancer.Models
         {
             return _context.PostJobs.Include(postJobs => postJobs.postBy).Include(postJobs => postJobs.jobSkillRequirements).Where(job => job.jobId == id).SingleOrDefault();
         }
+        public WorkingJob GetWorkingJobById(int id)
+        {
+            return _context.WorkingJobs.Include(workJobs => workJobs.postBy).Include(workJobs => workJobs.jobSkillRequirements).Where(job => job.jobId == id).SingleOrDefault();
+        }
 
         public JobFilter getFilterConfig()
         {
