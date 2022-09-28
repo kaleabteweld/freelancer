@@ -94,7 +94,7 @@
 
 
         <div class="foot">
-            @if (ViewBag.appledFlag == null && ViewBag.appledFlag == false)
+            @if (ViewBag.appledFlag == null || ViewBag.appledFlag == false)
             {
                 <a href="@Url.Action("ApplyJob", "Job" , new { jobId=Model.jobId })" class="btnn">Apply Now</a>
 
