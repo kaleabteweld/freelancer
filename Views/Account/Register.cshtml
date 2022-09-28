@@ -1,23 +1,36 @@
 ﻿@model RegisterUserModel
 
+
 @{
     ViewBag.title = "User Register";
 }
 
-<link href="~/css/signup6.css" rel="stylesheet" />
+<link href="~/css/Signup.css" rel="stylesheet" />
 
 
 
-<div class="signup6-container">
-    <div class="signup6-signup6">
+<div class="main">
+    <div class="images">
+        <div class="image1">
+            <img src="~/img/image4.jpg" alt="">
+        </div>
 
-        <img src="~/img/rectangle231242-xc4k-800w.png"
-             alt="Rectangle232422"
-             class="signup6-rectangle23" />
+        <div class="image2">
+            <img src="~/img/image5.jpg" alt="">
+        </div>
 
-        <div class="signup6-group27">
+        <div class="image3">
+            <img src="~/img/image6.jpg" alt="">
+        </div>
 
-        <form method="post">
+    </div>
+
+    <div class="content">
+
+        <label class="title">Sign-up</label>
+
+        <form class="form" method="post">
+
             <div asp-validation-summary="All" class="text-danger"></div>
 
             <div class="form-group signup6-group24">
@@ -28,11 +41,14 @@
 
             </div>
 
+
             <div class="form-group signup6-group25">
                 <label asp-for="userName"></label>
                 <input asp-for="userName" class="form-control" />
                 <span asp-validation-for="userName" class="text-danger"></span>
             </div>
+
+
 
             <div class="form-group signup6-group26">
                 <label asp-for="phone"></label>
@@ -53,94 +69,14 @@
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
 
-                <div class="signup6-group11">
-                    <button type="submit" class="btn">
-                        Register
-                    </button>
-                </div>
+            
+            <button class="button" type="submit">
+                Next
+            </button>
+
+
         </form>
-        
-       
-        
 
-            
 
-            
-
-           
-            
-            <span class="signup6-text18"><span>Sign-Up</span></span>
-        </div>
-   
     </div>
 </div>
-
-
-
-
-@*
-<div class="row">
-    <div class="col-md-12">
-        <form method="post">
-        <div asp-validation-summary="All" class="text-danger"></div>
-        
-
-
-        <div class="form-group">
-
-            <label asp-for="fullName"></label>
-            <input asp-for="fullName" class="form-control" />
-            <span asp-validation-for="fullName" class="text-danger"></span>
-
-        </div>
-
-           <div class="form-group">
-
-            <label asp-for="userName"></label>
-            <input asp-for="userName" class="form-control" />
-            <span asp-validation-for="userName" class="text-danger"></span>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label asp-for="phone"></label>
-            <input asp-for="phone" class="form-control" />
-            <span asp-validation-for="phone" class="text-danger"></span>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label asp-for="email"></label>
-            <input asp-for="email" class="form-control" />
-            <span asp-validation-for="email" class="text-danger"></span>
-
-        </div>
-
-
-        <div class="form-group">
-
-            <label asp-for="password"></label>
-            <input asp-for="password" class="form-control" />
-            <span asp-validation-for="password" class="text-danger"></span>
-
-        </div>
-
-
-
-
-
-
-
-
-
-        <button type="submit" class="btn btn-primary">
-            Register
-        </button>
-        </form>
-
-    </div>
-</div>*@

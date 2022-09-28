@@ -1,0 +1,156 @@
+*{
+    box-sizing: border-box;
+}
+.main {
+    min-height: 100vh;
+    max-width: 100vw;
+
+    display: flex;
+    gap: 10px;
+    overflow: hidden
+}
+
+
+.main .images{
+    width: 47%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width:100%;
+    max-height:100%;
+    
+    justify-content:center;
+    align-items: center;
+
+    gap:20px;
+}
+
+.main .content{
+    width: 53%;
+    height: 100%;
+
+    
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    align-items: center;
+ 
+}
+
+.main .images .image1{
+    
+    width: 300px;
+    height: 200px;
+    object-fit:  cover; 
+   
+    background-color: red;  
+
+}
+
+.image1 img{
+    width: 100%;
+    height: 100%;
+}
+.main .images .image2 {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    background-color: red;
+    margin-left: 60px;
+}
+}
+
+.image2 img{
+    width: 100%;
+    height: 100%;
+}
+
+.main .images .image3 {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    background-color: red;
+    margin-left: 231px;
+    margin-top: 15px;
+}
+
+.image3 img{
+    width: 100%;
+    height: 100%;
+}
+
+.main .content .title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+   
+
+}
+
+
+.main .content .form .form-group{
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #5E2781;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.form-group label {
+   color: white;
+   font-weight:bold;
+
+}
+
+.form-group input{
+    width: 350px;
+    height: 30px;
+    border-radius: 15px;
+    text-indent: 15px;
+
+}
+
+.main .content .form .radio{
+    
+    flex-direction: row-reverse;
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+input[type=radio]:hover {
+    box-shadow:0px 0px 10px rgb(133, 3, 133);
+}
+
+input[type="radio"] + label {
+        color: #5E2781;
+        font-family: 'Times New Roman', Times, serif;        
+}
+
+
+
+.main .content .form .button {
+    width: auto;
+    height: auto;
+    margin: 25px 0px 0px 120px;
+    flex-direction: row-reverse;
+    color: white;
+    font-size: 30px;
+    background-color: #5E2781;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
