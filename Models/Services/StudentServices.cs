@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace freelancer.Models.Services
 {
@@ -11,6 +12,10 @@ namespace freelancer.Models.Services
         }
 
       
+        public Students getStudentById(int stuId)
+        {
+            return _context.Students.Include(stu => stu.skills).Where(stu => stu.studentsId == stuId).SingleOrDefault();
+        }
 
 
 

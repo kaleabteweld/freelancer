@@ -154,6 +154,7 @@ namespace freelancer.Controllers
             }
             ViewBag.postJobId = postJob.jobId;
             ViewBag.appledFlag = applicantsServices.isApplyed(userId,postJob);
+            ViewBag.user = userServices.getUserWithColage(userId);
 
 
             return View(postJob);

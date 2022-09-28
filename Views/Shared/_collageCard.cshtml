@@ -1,0 +1,41 @@
+﻿@model UserModel
+
+<link href="~/css/collageCard.css" rel="stylesheet" />
+
+
+<div class="collageCard">
+
+    <div class="nav">
+        <img class="avtar" src="https://i.pravatar.cc/150?img=@(Model.collage.institutionId+10)" alt="">
+        <p class="name">
+            @Model.collage.name
+        </p>
+        <div class="iocn-Group">
+            <img src="~/img/Vector-3.svg" alt="Vector2941" class="icon" />
+            <img src="~/img/Vector-2.svg" alt="Vector2941" class="icon" />
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="text-bolck">
+            <div class="title">
+                Skills
+            </div>
+
+           
+
+            @foreach (var skill in Model.student.skills)
+            {
+                <li class="text list">
+                    @skill.skillName
+                </li>
+
+               
+            }
+
+            
+
+        </div>
+    </div>
+
+</div>

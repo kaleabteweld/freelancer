@@ -8,14 +8,29 @@ namespace freelancer.Models.Services
     public class UserServices
     {
         private readonly ApplicationDbContext _context;
-        public UserServices(ApplicationDbContext context)
+        private readonly StudentServices studentServices;
+
+        public UserServices(ApplicationDbContext context, StudentServices studentServices)
         {
             _context = context;
+            this.studentServices = studentServices;
         }
 
         public UserModel getUserById(string userId)
         {
            return _context.Users.Include(user => user.jobs).Where(user => user.Id == userId).SingleOrDefault();
+        }
+
+        public UserModel getUserWithColage(string userId)
+        {
+            var user = _context.Users.Include(user => user.collage).Include(user => user.student).Where(user => user.Id == userId).SingleOrDefault();
+            if (user == null)
+            {
+                return new UserModel();
+            }
+            Students students = studentServices.getStudentById(user.student.studentsId);
+            user.student = students;
+            return user;
         }
 
         public List<PostJob> userBookJobs (string userId)

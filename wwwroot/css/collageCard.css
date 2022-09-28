@@ -1,0 +1,102 @@
+body {
+    background-image: url('./luke-chesser-eICUFSeirc0-unsplash.jpg');
+    background-size: cover;
+}
+
+.collageCard {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+
+    margin: auto;
+    margin-top:70px;
+    width: 100%;
+
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.collageCard .nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px;
+
+    margin-bottom: 20px;
+}
+
+.collageCard .nav .avtar {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.collageCard .nav .name {
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #0F0F0F;
+
+}
+
+.collageCard .nav .iocn-Group {
+    margin: 0;
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15%;
+}
+
+.collageCard .nav .iocn-Group .icon {
+    height: 20px;
+    width: 20px;
+}
+
+
+.collageCard .main {
+    display: flex;
+    flex-direction: column;
+}
+
+.collageCard .main .text-bolck {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    justify-content: center;
+
+    gap: 4px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.collageCard .main .text-bolck .title {
+    color: white;
+    margin: 0;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.collageCard .main .text-bolck .text {
+    color: rgb(214, 205, 221);
+    margin: 0;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.collageCard .main .text-bolck .list {
+    list-style-type: circle;
+    margin-left: 10px;
+}

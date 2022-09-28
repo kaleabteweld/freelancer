@@ -4,5 +4,9 @@
 @Html.Partial("_JobDetail",Model);
 
 @section filtter {
-    @Html.Partial("_cvUpload",new CvUploadInput());
+    <div>
+        @Html.Partial("_cvUpload",new CvUploadInput())
+        @Html.Partial("_collageCard",(ViewBag.user?? new UserModel()) as UserModel);
+
+    </div>
 }
