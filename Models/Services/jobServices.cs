@@ -29,10 +29,26 @@ namespace freelancer.Models
         public JobFilter getFilterConfig()
         {
             //TODO this is only for PostJobs
+            float minSalary = 0;
+            try {
+                minSalary = _context.PostJobs.Min(job => job.jobSalary);
+            }
+            catch
+            {
 
-            float minSalary = _context.PostJobs.Min(job => job.jobSalary);
+            }
+            
             List<Skills> skills = _context.Skills.ToList();
-            DateTime startDate = _context.PostJobs.Min(job => job.postDate);
+            DateTime startDate = new DateTime();
+            try
+            {
+                startDate = _context.PostJobs.Min(job => job.postDate);
+            }
+            catch
+            {
+
+            }
+           
 
             JobFilter filter = new JobFilter(
                     Range.StartAt( (int) minSalary),
@@ -45,7 +61,13 @@ namespace freelancer.Models
         }
         public List<PostJob> GetPostJobs()
         {
-            var jobs = _context.PostJobs.Include(job => job.postBy).ToList();
+            var temp = _context.PostJobs.Include(job => job.postBy);
+            if(temp == null)
+            {
+                return new List<PostJob>();
+            }
+            var jobs = temp.ToList();
+
             return jobs;
         }
         public List<PostJob> GetPostJobs(IJobFilter? filter)

@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace freelancer.Models
 {
@@ -18,6 +20,12 @@ namespace freelancer.Models
         public List<PostJob>? postedJobs { get; set; }
         public List<WorkingJob>? activeJobs { get; set; }
         public List<DoneJob>? DoneJobs { get; set; }
+
+
+        // user obj
+       
+        //public List<UserModel>? users { get; set; }
+
 
 
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
@@ -10,10 +11,13 @@ namespace freelancer.Models.Services
         private readonly ApplicationDbContext _context;
         private readonly StudentServices studentServices;
 
+
+
         public UserServices(ApplicationDbContext context, StudentServices studentServices)
         {
             _context = context;
             this.studentServices = studentServices;
+          
         }
 
         public UserModel getUserById(string userId)
@@ -133,6 +137,23 @@ namespace freelancer.Models.Services
         {
             var user = _context.Users.Include(user => user.jobs).FirstOrDefault((user => user.Id == userId));
             user.jobs.Add(job);
+
+        }
+
+        public userType getUserType(string userId)
+        {
+            UserModel user = _context.Users.Where(us => us.Id == userId).SingleOrDefault();
+            if (user == null)
+            {
+                return userType._null;
+            }
+
+            if (user.us != null)
+            {
+                return userType.organizions;
+            }
+
+            return userType.user;
 
         }
     }

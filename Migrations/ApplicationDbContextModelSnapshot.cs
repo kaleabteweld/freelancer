@@ -270,6 +270,33 @@ namespace freelancer.Migrations
                     b.ToTable("UserModelWorkingJob");
                 });
 
+            modelBuilder.Entity("freelancer.Models.ApplicantsModel", b =>
+                {
+                    b.Property<int>("ApplicatioID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PostJobId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("applicantId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("cvUploadLoc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ApplicatioID");
+
+                    b.HasIndex("PostJobId");
+
+                    b.HasIndex("applicantId");
+
+                    b.ToTable("Applicants");
+                });
+
             modelBuilder.Entity("freelancer.Models.Collage", b =>
                 {
                     b.Property<int>("institutionId")
@@ -312,33 +339,6 @@ namespace freelancer.Migrations
                     b.HasKey("courseId");
 
                     b.ToTable("Courses");
-                });
-
-            modelBuilder.Entity("freelancer.Models.DomainModel.ApplicantsModel", b =>
-                {
-                    b.Property<int>("ApplicatioID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("PostJobId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("applicantId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("cvUploadLoc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ApplicatioID");
-
-                    b.HasIndex("PostJobId");
-
-                    b.HasIndex("applicantId");
-
-                    b.ToTable("Applicants");
                 });
 
             modelBuilder.Entity("freelancer.Models.DoneJob", b =>
@@ -596,6 +596,9 @@ namespace freelancer.Migrations
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
+
+                    b.Property<int?>("UserOrganizion")
+                        .HasColumnType("int");
 
                     b.Property<int>("XP")
                         .HasColumnType("int");
@@ -864,7 +867,7 @@ namespace freelancer.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("freelancer.Models.DomainModel.ApplicantsModel", b =>
+            modelBuilder.Entity("freelancer.Models.ApplicantsModel", b =>
                 {
                     b.HasOne("freelancer.Models.PostJob", "PostJob")
                         .WithMany()

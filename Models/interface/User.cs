@@ -18,4 +18,10 @@ namespace freelancer.Models
         public string userName { get; set; }
         public string passWord { get; set; }
     }
+    public enum userType
+    {
+        user,
+        organizions,
+        _null,
+    }
 }
