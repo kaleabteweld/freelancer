@@ -126,7 +126,19 @@ namespace freelancer.Controllers
                         false);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
+
+                    userType userType = userServices.getUserType(userId);
+                    if(userType == userType.user)
+                    {
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (userType == userType.organizions)
+                    {
+                        return RedirectToAction("Index", "Organizions");
+                    }
+
+                   
                 }
                 else
                 {

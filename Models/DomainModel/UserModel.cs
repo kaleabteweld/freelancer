@@ -12,6 +12,9 @@ namespace freelancer.Models
         public int XP { get; set; }
         public string fullName { get; set; }
 
+        public int us { get; set; }
+
+
         // 
         public Collage? collage { get; set; }
         public Students? student { get; set; }
@@ -27,6 +30,13 @@ namespace freelancer.Models
         //public List<DoneJob>? likedJobs { get; set; }
         //[ForeignKey("JobsDoneId")]
         public List<DoneJob>? JobsDone { get; set; }
+
+
+
+        // org
+       
+        
+       
 
 
     }

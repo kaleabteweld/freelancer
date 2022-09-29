@@ -1,15 +1,25 @@
-﻿using freelancer.Models.DomainModel;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
+using System.Reflection.Metadata;
 
 namespace freelancer.Models
 {
     public class ApplicationDbContext : IdentityDbContext<UserModel>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
-        }
+            : base(options) { }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<UserModel>()
+        //         .HasMany<Organizion>(s => s.Userorganizions)
+        //         .WithMany(c => c.users);
+                 
+        //    base.OnModelCreating(modelBuilder);
+        //}
+
+
 
         public DbSet<UserModel> Users { get; set; }
 

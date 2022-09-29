@@ -1,0 +1,26 @@
+﻿@model List<ApplicantsModel>;
+
+@foreach (ApplicantsModel item in Model)
+{
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        @item.PostJob.jobTitle
+    </button>
+
+    <div class="collapse" id="collapseExample">
+
+            @(ViewBag.applicantId = item.ApplicatioID);
+            @Html.Partial("_applicantsCard",item.applicant);
+
+        
+    </div>
+    
+
+}
+
+@section organizionsSideBar {
+    <div>
+        @Html.Partial("_cvUpload",new CvUploadInput())
+        @Html.Partial("_collageCard",(ViewBag.user?? new UserModel()) as UserModel);
+
+    </div>
+}
