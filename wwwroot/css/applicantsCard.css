@@ -1,0 +1,157 @@
+body {
+    background-image: url('./luke-chesser-eICUFSeirc0-unsplash.jpg');
+    background-size: cover;
+}
+
+.ApplicantCardContainer {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+
+    margin: auto;
+    width: 130%;
+
+
+    border-radius: 10px;
+
+    background-color: #F5F5F5;
+}
+
+
+
+.ApplicantCardContainer .user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 8px;
+}
+
+.ApplicantCardContainer .user .avatar {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+
+    border-radius: 50%;
+}
+
+.ApplicantCardContainer .user .name {
+    margin: 0;
+
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #0F0F0F;
+
+}
+
+.ApplicantCardContainer .iocn-Group {
+    margin: 0;
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10%;
+}
+
+.ApplicantCardContainer .icon {
+    height: 20px;
+    width: 20px;
+}
+
+.ApplicantCardContainer .body {
+
+    border-radius: 10px;
+
+    background-color: white;
+
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 10px;
+}
+
+.ApplicantCardContainer .tit {
+    color: black;
+    font-weight: bolder;
+    font-size: 17px;
+}
+
+.ApplicantCardContainer .body .main {
+    display: flex;
+    flex-direction: column;
+}
+
+.ApplicantCardContainer .body .main .text-bolck {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    justify-content: center;
+
+    gap: 4px;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.ApplicantCardContainer .body .main .text-bolck .title {
+    color: black;
+    margin: 0;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.ApplicantCardContainer .body .main .text-bolck .text {
+    color: rgb(56, 56, 56);
+    margin: 0;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.ApplicantCardContainer .body .main .text-bolck .list {
+    list-style-type: circle;
+    margin-left: 10px;
+}
+
+.ApplicantCardContainer .foot {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    margin-top: 20px;
+}
+
+.ApplicantCardContainer .foot .btn-Group {
+    display: flex;
+    gap: 20px;
+
+}
+
+.ApplicantCardContainer .foot .btnn {
+
+    border: none;
+    border-radius: 50px;
+    outline: none;
+
+    background-color: #5E2781;
+
+    width: 90px;
+
+
+
+    padding: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ApplicantCardContainer .foot .border {
+    border: 2px solid #5E2781;
+    background-color: transparent;
+}

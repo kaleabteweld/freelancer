@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using freelancer.Models;
 
 namespace freelancer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220930085301_user role")]
+    partial class userrole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -421,8 +423,7 @@ namespace freelancer.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
+                    b.Property<string>("UserModelId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("email")
@@ -439,7 +440,7 @@ namespace freelancer.Migrations
 
                     b.HasKey("institutionId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserModelId");
 
                     b.ToTable("Organizions");
                 });
@@ -897,13 +898,9 @@ namespace freelancer.Migrations
 
             modelBuilder.Entity("freelancer.Models.Organizion", b =>
                 {
-                    b.HasOne("freelancer.Models.UserModel", "user")
+                    b.HasOne("freelancer.Models.UserModel", null)
                         .WithMany("organizions")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("user");
+                        .HasForeignKey("UserModelId");
                 });
 
             modelBuilder.Entity("freelancer.Models.PostJob", b =>

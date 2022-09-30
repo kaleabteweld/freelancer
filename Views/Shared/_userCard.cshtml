@@ -1,0 +1,30 @@
+﻿@model UserModel;
+
+<link href="~/css/applicantsCard.css" rel="stylesheet" />
+
+
+<div class="ApplicantCardContainer">
+
+
+
+    <div class="user">
+        <img class="avatar" src="https://i.pravatar.cc/150?img=@(Model.Id.ToCharArray().Sum(x => x)%10)" />
+        <p class="name">@Model.fullName </p>
+
+        <div class="iocn-Group">
+            <img src="~/img/Vector-3.svg" class="icon" />
+            <img src="~/img/Vector-2.svg" class="icon" />
+        </div>
+
+    </div>
+
+    <!-- <p class="tit">
+        Collage
+    </p> -->
+
+    <div class="body">
+
+    </div>
+
+
+</div>

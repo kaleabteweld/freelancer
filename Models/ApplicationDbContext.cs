@@ -1,4 +1,4 @@
-﻿using freelancer.Models.DomainModel;
+﻿using freelancer.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

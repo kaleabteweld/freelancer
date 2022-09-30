@@ -101,8 +101,24 @@ namespace freelancer.Models
             _context.SaveChanges();
             return job;
         }
-        
-        
-    
+
+        public List<UserModel> getEmployees(int orgId)
+        {
+            var workingJobs = _context.WorkingJobs.Include(wj => wj.employees).Include(wj => wj.postBy).Where(wj => wj.postBy.institutionId == orgId).ToList();
+
+            List<UserModel> employees = new List<UserModel>();
+            foreach (var employee in workingJobs)
+            {
+                if(employee.employees == null)
+                {
+                    continue;
+                }
+                employees.AddRange(employee.employees);
+            }
+
+            return employees;
+        }
+
+
     }
 }

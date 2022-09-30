@@ -1,5 +1,4 @@
-﻿using freelancer.Models.DomainModel;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -119,6 +118,29 @@ namespace freelancer.Models.Services
             applicants.cvUploadLoc = uploadUrl;
             _context.SaveChanges();
 
+        }
+
+        public ApplicantsModel GetApplicant(string userId, int postJobId)
+        {
+            return _context.Applicants.Include(ap => ap.applicant).Include(ap => ap.PostJob).Where(ap => ap.applicantId == userId && ap.PostJobId == postJobId).SingleOrDefault();
+        }
+
+        public List<ApplicantsModel> GetApplicant(int orgId)
+        {
+            return _context.Applicants.Include(ap => ap.applicant).Include(ap => ap.applicant.collage).Include(ap => ap.PostJob).Include(ap => ap.PostJob.postBy).Where(ap => ap.PostJob.postBy.institutionId == orgId)
+                .OrderBy(ap => ap.PostJob.postDate)
+                .ToList();
+        }
+
+        public ApplicantsModel _GetApplicant(int applId)
+        {
+            return _context.Applicants.
+                Include(app => app.applicant)
+                .Include(app => app.applicant.collage)
+                .Include(app => app.PostJob)
+                .Include(app => app.applicant.student)
+                .Include(app => app.applicant.student.skills)
+                .Where(app => app.ApplicatioID == applId).SingleOrDefault();
         }
     }
 }

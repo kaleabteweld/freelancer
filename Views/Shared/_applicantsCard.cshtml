@@ -1,0 +1,58 @@
+﻿@model UserModel;
+
+<link href="~/css/applicantsCard.css" rel="stylesheet" />
+
+
+<div class="ApplicantCardContainer">
+
+
+
+    <div class="user">
+        <img class="avatar" src="https://i.pravatar.cc/150?img=@(Model.Id.ToCharArray().Sum(x => x)%10)" />
+        <p class="name">@Model.fullName </p>
+
+        <div class="iocn-Group">
+            <img src="~/img/Vector-3.svg" class="icon" />
+            <img src="~/img/Vector-2.svg" class="icon" />
+        </div>
+
+    </div>
+
+    <!-- <p class="tit">
+        Collage
+    </p> -->
+
+    <div class="body">
+
+
+        <div class="user body-nav">
+            <img class="avatar" src="https://i.pravatar.cc/150?img=@(Model.collage.institutionId+10)" alt="">
+            <p class="name">
+                @Model.collage.name
+            </p>
+            <div class="iocn-Group">
+                <img src="~/img/Vector-3.svg" class="icon" />
+                <img src="~/img/Vector-2.svg" class="icon" />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="foot">
+      
+
+        <div class="btn-Group">
+
+            <a href="" class="btnn border noGo">
+                <img src="~/img/wong.svg" class="icon" />
+
+            </a>
+
+            <a class="btnn go" href="@Url.Action("info", "Organizions" , new { applicantId=ViewBag.applicantId })">
+                <img src="~/img/correct.svg" class="icon" />
+            </a>
+        </div>
+
+
+    </div>
+</div>

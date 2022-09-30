@@ -17,13 +17,15 @@ namespace freelancer.Controllers
         private readonly SignInManager<UserModel> signInManager;
         private readonly CollageServices collageServices;
         private readonly UserServices userServices;
+        private readonly OrganizionsServices organizionsServices;
 
-        public AccountController(UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager, CollageServices _collageServices, UserServices _userServices)
+        public AccountController(UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager, CollageServices _collageServices, UserServices _userServices, OrganizionsServices organizionsServices)
         {
             userManager = _userManager;
             signInManager = _signInManager;
             collageServices = _collageServices;
             userServices = _userServices;
+            this.organizionsServices = organizionsServices;
         }
 
         // user Register
@@ -126,6 +128,12 @@ namespace freelancer.Controllers
                         false);
                 if (result.Succeeded)
                 {
+                    UserModel _user  = await signInManager.UserManager.FindByNameAsync(user.userName);
+                  
+                    if (organizionsServices.isUserAnOrd(_user.Id))
+                    {
+                        return RedirectToAction("index", "Organizions");
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 else

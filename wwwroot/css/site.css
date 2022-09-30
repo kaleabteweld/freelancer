@@ -95,3 +95,13 @@ body {
         font-size: 20px;
         padding: 5px;
     }
+
+
+
+.workDiv .jobTitle {
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+
+    margin-top:20px;
+}

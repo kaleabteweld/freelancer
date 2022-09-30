@@ -5,7 +5,9 @@
 
 <div class="JobDcontainer">
 
-    <div class="nav">
+    @if ((ViewBag.orgFlag == null))
+    {
+        <div class="nav">
         <div class="navHade">
             <img src="https://i.pravatar.cc/150?img=@Model.postBy.institutionId" class="avater" />
             <p class="title">@Model.jobTitle</p>
@@ -16,12 +18,16 @@
             <img src="~/img/Vector-2.svg" alt="Vector2941" class="icon" />
         </div>
     </div>
+    }
+    
 
 
     <div class="main">
 
-        <div class="text-bolck">
-            <div class="title">
+        @if ((ViewBag.orgFlag == null))
+        {
+            <div class="text-bolck">
+                <div class="title">
                 company name
             </div>
 
@@ -29,6 +35,7 @@
                 @Model.postBy.name
             </div>
         </div>
+        }
 
         <div class="text-bolck">
             <div class="title">
@@ -94,16 +101,23 @@
 
 
         <div class="foot">
-            @if (ViewBag.appledFlag == null || ViewBag.appledFlag == false)
+            @if (ViewBag.orgFlag != null && ViewBag.orgFlag == true)
             {
-                <a href="@Url.Action("ApplyJob", "Job" , new { jobId=Model.jobId })" class="btnn">Apply Now</a>
+                <a href="@Url.Action("accept", "Organizions" , new { applicantId=ViewBag.applicantId })" class="btnn"> Accept </a>
+            }else{
+                @if (ViewBag.appledFlag != null && ViewBag.appledFlag == true)
+                {
+                    <a href="@Url.Action("ApplyJob", "Job" , new { jobId=Model.jobId })" class="btnn">Apply Now</a>
 
+                }
+                else
+                {
+                    <p class="btnn">
+                        in Progress
+                    </p>
+                }
             }
-            else{
-                <p class="btnn">
-                    in Progress
-                </p>
-            }
+           
         </div>
 
     </div>

@@ -19,19 +19,19 @@ namespace freelancer.Controllers
         private readonly SignInManager<UserModel> signInManager;
         private readonly UserServices userServices;
         private readonly SkillsServices skillsServices;
+        private readonly OrganizionsServices organizionsServices;
 
-
-        public HomeController(JobServices service, UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager, UserServices _userServices, SkillsServices _skillsServices)
+        public HomeController(JobServices service, UserManager<UserModel> _userManager, SignInManager<UserModel> _signInManager, UserServices _userServices, SkillsServices _skillsServices,OrganizionsServices organizionsServices)
         {
             _jobServices = service;
             userManager = _userManager;
             signInManager = _signInManager;
-           userServices = _userServices;
+            userServices = _userServices;
             skillsServices = _skillsServices;
-
+            this.organizionsServices = organizionsServices;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //Skills temp = new Skills { skillId = 1};
             //Skills temp2 = new Skills { skillId = 7 };
@@ -39,6 +39,7 @@ namespace freelancer.Controllers
             //List<Skills> skills = new List<Skills>();
             //skills.Add(temp);
             //skills.Add(temp2);
+
 
 
             JobFilter initFilter = _jobServices.getFilterConfig();
@@ -56,9 +57,15 @@ namespace freelancer.Controllers
             {
                 return RedirectToAction("LogIn", "Account", new { area = "" });
             }
-
-
             string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
+
+            if (organizionsServices.isUserAnOrd(userId))
+            {
+                return RedirectToAction("index", "Organizions");
+
+            }
+
+
             ViewBag.doseUserHaveCollage = userServices.doseUserHaveCollage(userId ?? "");
             List<PostJob> jobs = _jobServices.GetPostJobs();
 

@@ -1,0 +1,20 @@
+﻿@model ApplicantsModel;
+
+@{
+    ViewBag.orgFlag = true;
+}
+@(ViewBag.applicantId = Model.ApplicatioID)
+
+@Html.Partial("_JobDetail",Model.PostJob)
+
+@section filtter {
+    <div>
+        
+        @Html.Partial("_collageCard",(Model.applicant) as UserModel);
+
+    </div>
+}
+    @section ordSideBar{
+    @Html.Partial("_OrganizionsSideBar",(ViewBag.organizion as Organizion));
+
+}

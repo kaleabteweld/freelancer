@@ -1,0 +1,13 @@
+﻿@model List<UserModel>
+
+@foreach (var item in Model)
+{
+    <div style="margin-top:20px"></div>
+    @Html.Partial("_userCard",item);
+}
+
+}
+@section ordSideBar{
+    @Html.Partial("_OrganizionsSideBar",(ViewBag.organizion as Organizion));
+
+}

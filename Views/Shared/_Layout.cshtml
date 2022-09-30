@@ -59,7 +59,14 @@
     <div class="container-fluid">
         <div class="row">
         <div class="col-3" style="margin-left:auto;">
-                @Html.Partial("_SideBar",await signInManager.UserManager.GetUserAsync(User));
+                @if (IsSectionDefined("ordSideBar"))
+                {
+                    @RenderSection("ordSideBar")
+                }else{
+                    @Html.Partial("_SideBar",await signInManager.UserManager.GetUserAsync(User))
+                    
+
+                }
         </div>
         <div class="col-4">
                 <main role="main">

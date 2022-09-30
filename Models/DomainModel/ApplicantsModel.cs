@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 
-namespace freelancer.Models.DomainModel
+namespace freelancer.Models
 {
     public class ApplicantsModel
     {

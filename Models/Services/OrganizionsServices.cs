@@ -54,7 +54,17 @@ namespace freelancer.Models.Services
 
         public List<Organizion> getAllOrg()
         {
-            return _context.Organizions.Include(org => org.postedJobs).Include(org => org.DoneJobs).Include(org => org.activeJobs).ToList();
+            return _context.Organizions.Include(org => org.user).Include(org => org.postedJobs).Include(org => org.DoneJobs).Include(org => org.activeJobs).ToList();
+        }
+
+        public bool isUserAnOrd(string userId)
+        {
+            return _context.Organizions.Where(org => org.UserId == userId).SingleOrDefault() == null? false : true;
+        }
+        
+        public Organizion getOrgFromUserId(string userId)
+        {
+            return _context.Organizions.Where(og => og.UserId == userId).SingleOrDefault();
         }
 
     }

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace freelancer.Models
 {
 
-    public class UserModel : IdentityUser,IUserBaseInfo, IlearningInstitutionInfo
+    public class UserModel : IdentityUser, IUserBaseInfo, IlearningInstitutionInfo
     {
         // user info
         public int XP { get; set; }
@@ -27,6 +27,8 @@ namespace freelancer.Models
         //public List<DoneJob>? likedJobs { get; set; }
         //[ForeignKey("JobsDoneId")]
         public List<DoneJob>? JobsDone { get; set; }
+
+        //public Organizion? organizion { get; set; }
 
 
     }
@@ -62,7 +64,7 @@ namespace freelancer.Models
         public string studentId { get; set; }
 
     }
-    public class RegisterUserCollageModel: IlearningInstitutionInfo
+    public class RegisterUserCollageModel : IlearningInstitutionInfo
     {
         // IlearningInstitutionInfo
         //[Required]
@@ -75,9 +77,9 @@ namespace freelancer.Models
     public class LogInUserModel : ILogInUserFrom
     {
         [Required]
-       
+
         [Display(Name = "user name")]
-        public string userName { get ; set; }
+        public string userName { get; set; }
 
         [Required]
         [Display(Name = "password")]
@@ -87,4 +89,5 @@ namespace freelancer.Models
         [Display(Name = "remember me")]
         public bool rememberMe { get; set; }
     }
-};
+
+}

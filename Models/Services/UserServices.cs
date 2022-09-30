@@ -126,7 +126,18 @@ namespace freelancer.Models.Services
                 return new List<WorkingJob>();
             }
 
-            return user.jobs?? new List<WorkingJob>();
+            List<WorkingJob> jobs = new List<WorkingJob>();
+
+            foreach(var item in user.jobs ?? new List<WorkingJob>())
+            {
+                var temp = _context.WorkingJobs.Include(wj => wj.employees).Include(wj => wj.postBy).Where(wj => wj.jobId == item.jobId).SingleOrDefault();
+                if(temp == null)
+                {
+                    continue;
+                }
+                jobs.Add(temp);
+            }
+            return jobs;
         }
 
         public void addWorkingJob (WorkingJob job, string userId)

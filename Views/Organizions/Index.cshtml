@@ -1,0 +1,18 @@
+﻿@model List<ApplicantsModel>
+
+@foreach (var item in Model)
+{
+    <div class="workDiv">
+        <p class="jobTitle">
+            job Title: @item.PostJob.jobTitle
+        </p>
+    </div>
+    ViewBag.applicantId = item.ApplicatioID;
+    @Html.Partial("_applicantsCard",item.applicant);
+}
+
+
+@section ordSideBar{
+    @Html.Partial("_OrganizionsSideBar",(ViewBag.organizion as Organizion));
+
+}
