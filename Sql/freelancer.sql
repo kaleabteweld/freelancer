@@ -1,85 +1,6 @@
-CREATE DATABASE [Freelancer]
- CONTAINMENT = NONE
- ON  PRIMARY 
-( NAME = N'Freelancer_Data', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Freelancer.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
- LOG ON 
-( NAME = N'Freelancer_Log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\Freelancer.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
- WITH CATALOG_COLLATION = DATABASE_DEFAULT
+USE [freelancer]
 GO
-ALTER DATABASE [Freelancer] SET COMPATIBILITY_LEVEL = 150
-GO
-IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
-begin
-EXEC [Freelancer].[dbo].[sp_fulltext_database] @action = 'enable'
-end
-GO
-ALTER DATABASE [Freelancer] SET ANSI_NULL_DEFAULT OFF 
-GO
-ALTER DATABASE [Freelancer] SET ANSI_NULLS OFF 
-GO
-ALTER DATABASE [Freelancer] SET ANSI_PADDING OFF 
-GO
-ALTER DATABASE [Freelancer] SET ANSI_WARNINGS OFF 
-GO
-ALTER DATABASE [Freelancer] SET ARITHABORT OFF 
-GO
-ALTER DATABASE [Freelancer] SET AUTO_CLOSE OFF 
-GO
-ALTER DATABASE [Freelancer] SET AUTO_SHRINK OFF 
-GO
-ALTER DATABASE [Freelancer] SET AUTO_UPDATE_STATISTICS ON 
-GO
-ALTER DATABASE [Freelancer] SET CURSOR_CLOSE_ON_COMMIT OFF 
-GO
-ALTER DATABASE [Freelancer] SET CURSOR_DEFAULT  GLOBAL 
-GO
-ALTER DATABASE [Freelancer] SET CONCAT_NULL_YIELDS_NULL OFF 
-GO
-ALTER DATABASE [Freelancer] SET NUMERIC_ROUNDABORT OFF 
-GO
-ALTER DATABASE [Freelancer] SET QUOTED_IDENTIFIER OFF 
-GO
-ALTER DATABASE [Freelancer] SET RECURSIVE_TRIGGERS OFF 
-GO
-ALTER DATABASE [Freelancer] SET  ENABLE_BROKER 
-GO
-ALTER DATABASE [Freelancer] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
-GO
-ALTER DATABASE [Freelancer] SET DATE_CORRELATION_OPTIMIZATION OFF 
-GO
-ALTER DATABASE [Freelancer] SET TRUSTWORTHY OFF 
-GO
-ALTER DATABASE [Freelancer] SET ALLOW_SNAPSHOT_ISOLATION OFF 
-GO
-ALTER DATABASE [Freelancer] SET PARAMETERIZATION SIMPLE 
-GO
-ALTER DATABASE [Freelancer] SET READ_COMMITTED_SNAPSHOT ON 
-GO
-ALTER DATABASE [Freelancer] SET HONOR_BROKER_PRIORITY OFF 
-GO
-ALTER DATABASE [Freelancer] SET RECOVERY FULL 
-GO
-ALTER DATABASE [Freelancer] SET  MULTI_USER 
-GO
-ALTER DATABASE [Freelancer] SET PAGE_VERIFY CHECKSUM  
-GO
-ALTER DATABASE [Freelancer] SET DB_CHAINING OFF 
-GO
-ALTER DATABASE [Freelancer] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
-GO
-ALTER DATABASE [Freelancer] SET TARGET_RECOVERY_TIME = 60 SECONDS 
-GO
-ALTER DATABASE [Freelancer] SET DELAYED_DURABILITY = DISABLED 
-GO
-ALTER DATABASE [Freelancer] SET ACCELERATED_DATABASE_RECOVERY = OFF  
-GO
-EXEC sys.sp_db_vardecimal_storage_format N'Freelancer', N'ON'
-GO
-ALTER DATABASE [Freelancer] SET QUERY_STORE = OFF
-GO
-USE [Freelancer]
-GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,7 +14,7 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Applicants]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[Applicants]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -109,7 +30,7 @@ CREATE TABLE [dbo].[Applicants](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +46,7 @@ CREATE TABLE [dbo].[AspNetRoleClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +62,7 @@ CREATE TABLE [dbo].[AspNetRoles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +78,7 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -174,7 +95,7 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -189,7 +110,7 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -220,7 +141,7 @@ CREATE TABLE [dbo].[AspNetUsers](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUserTokens]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -238,7 +159,7 @@ CREATE TABLE [dbo].[AspNetUserTokens](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Collages]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[Collages]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -254,7 +175,7 @@ CREATE TABLE [dbo].[Collages](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Courses]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[Courses]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -269,7 +190,7 @@ CREATE TABLE [dbo].[Courses](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DoneJobs]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[DoneJobs]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -299,7 +220,7 @@ CREATE TABLE [dbo].[DoneJobs](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DoneJobSkills]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[DoneJobSkills]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -314,7 +235,7 @@ CREATE TABLE [dbo].[DoneJobSkills](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[DoneJobUserModel]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[DoneJobUserModel]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -329,7 +250,7 @@ CREATE TABLE [dbo].[DoneJobUserModel](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Organizions]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[Organizions]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -346,7 +267,7 @@ CREATE TABLE [dbo].[Organizions](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PostJobs]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[PostJobs]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -370,7 +291,7 @@ CREATE TABLE [dbo].[PostJobs](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PostJobSkills]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[PostJobSkills]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -385,7 +306,7 @@ CREATE TABLE [dbo].[PostJobSkills](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[PostJobUserModel]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[PostJobUserModel]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -400,7 +321,7 @@ CREATE TABLE [dbo].[PostJobUserModel](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Skills]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[Skills]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -414,7 +335,7 @@ CREATE TABLE [dbo].[Skills](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SkillsStudents]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[SkillsStudents]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -429,7 +350,7 @@ CREATE TABLE [dbo].[SkillsStudents](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SkillsUserModel]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[SkillsUserModel]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -444,7 +365,7 @@ CREATE TABLE [dbo].[SkillsUserModel](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SkillsWorkingJob]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[SkillsWorkingJob]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -459,7 +380,7 @@ CREATE TABLE [dbo].[SkillsWorkingJob](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Students]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[Students]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -478,7 +399,7 @@ CREATE TABLE [dbo].[Students](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserModelWorkingJob]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[UserModelWorkingJob]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -493,7 +414,7 @@ CREATE TABLE [dbo].[UserModelWorkingJob](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[WorkingJobs]    Script Date: 9/30/2022 8:58:59 PM ******/
+/****** Object:  Table [dbo].[WorkingJobs]    Script Date: 10/1/2022 3:12:46 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -521,266 +442,172 @@ CREATE TABLE [dbo].[WorkingJobs](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220903205756_baseTables', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220906084715_AddingIdentity', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220922155700_changeToUserModel', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220922160406_changeToUserModel2', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220922163804_changeToUserModel3', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220923072215_addUserModel4', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220923082923_db remodel', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220925092422_ApplicantsServices', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220927114817_update Applicants Model', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220930085301_user role', N'5.0.17')
-INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20220930093010_org user', N'5.0.17')
-GO
-SET IDENTITY_INSERT [dbo].[Applicants] ON 
-
-INSERT [dbo].[Applicants] ([ApplicatioID], [PostJobId], [applicantId], [cvUploadLoc]) VALUES (1, 1, N'76fb78bb-8583-45d2-9aae-a1e0b1b27214', N'')
-INSERT [dbo].[Applicants] ([ApplicatioID], [PostJobId], [applicantId], [cvUploadLoc]) VALUES (2, 2, N'76fb78bb-8583-45d2-9aae-a1e0b1b27214', N'')
-INSERT [dbo].[Applicants] ([ApplicatioID], [PostJobId], [applicantId], [cvUploadLoc]) VALUES (6, 3, N'76fb78bb-8583-45d2-9aae-a1e0b1b27214', N'')
-SET IDENTITY_INSERT [dbo].[Applicants] OFF
-GO
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'3d26c238-85b1-4d57-b4f6-b79f2ca2139a', N'org1', N'ORG1', N'org1@gmail.com', N'ORG1@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEJlrog/5KO6n9i8uH91/zcSqZ6445quNDi1yoy1+SxUODIxfQxIsobWuXlwdcMVPPw==', N'CVT5IN4TEJQYHCV3ZBNW3ANR737XFOZY', N'7fe2bbad-4645-42e3-8829-86aad531981c', N'org1', 0, 0, NULL, 1, 0, 0, NULL, N'og1', NULL)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'76fb78bb-8583-45d2-9aae-a1e0b1b27214', N'kolo', N'KOLO', N'kaleabteweld3@gmail.com', N'KALEABTEWELD3@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAELFmXktmiUCnBsfqSSBDk/1/F8rTkEyHJcwV0s7nRYDuMdmKmEZ1UK0V+YdFGUrwfg==', N'QF5N6UAVL32ZUBZXZN4T45MCHT4XE63A', N'16cbf96f-9925-4e42-9532-9069701905b3', N'+251900640160', 0, 0, NULL, 1, 0, 0, 1, N'Kaleab Tewebrhan Abay', 1)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'9b7b6677-99ed-443a-89ea-33ecbd8aadd9', N'electra', N'ELECTRA', N'lidi@gmail.com', N'LIDI@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEFNxPHpPuoRnVKhZOFcMdPUKH5rLen6fCpjHbkAdJLds3xmwmqHC90pAYhQgk2VhJw==', N'7XY5WTQUVRBGWJLQ27HFN6DYJMNSTRHB', N'e7f7c320-d370-4c9b-bac5-dcbf3afcc838', N'0911222222', 0, 0, NULL, 1, 0, 0, 1, N'lidiya zeleke', 4)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'a15538bd-d7e4-4040-b182-334cfc3ed626', N'kolopro', N'KOLOPRO', N'kaleabteweld3@gmail.com', N'KALEABTEWELD3@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEOSwTEBQvbA0h2jzC1iNbt8ePXHs88aPPQPnNfS1yFG+sTJgYzJ70U4C/mGswBublA==', N'U2FBRCPZRZU42KF6CT47JTXIWP4OWO3X', N'836bd0c4-02fd-4837-9097-8f89ab602a50', N'+251900640160', 0, 0, NULL, 1, 0, 0, NULL, N'Kaleab Tewebrhan Abay', NULL)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'afa1c83f-8f3f-4eea-bece-069ff9e3a298', N'edu', N'EDU', N'metadel001@gmail.com', N'METADEL001@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEMwmv1ALSaS2xFUI7v1zoGG2INtAV1XRn7UQjImN+oMIFzXl8rDE82WtfgSqkkLCFQ==', N'2UYANUZ7U6KX2J3PCVKY5O77A32KH6NC', N'c53ca640-3d04-4d1d-8165-29e34094311c', N'0983915403', 0, 0, NULL, 1, 0, 0, 1, N'edelawit abebe', 5)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'b3dcfbe7-7f49-492c-800f-3cdad4078f86', N'kkk', N'KKK', N'kaleabteweld3@gmail.com', N'KALEABTEWELD3@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEBhXtSMcQNKaOYWP2VfXPKkQU+4h7UB7+rpnWfohR2ib1YoGP9VSXy9Yppb0Vi+JVg==', N'KKILON4ZCYBYDY3PXAOVRFQ3OI5JJPGF', N'255a3919-046e-4c68-8dbb-e55a9d73b92a', N'+251900640160', 0, 0, NULL, 1, 0, 0, 1, N'Kaleab Tewebrhan Abay', 1)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'e00ecf68-e085-4f13-8f02-b32dfae6dc74', N'kolo123', N'KOLO123', N'kaleabteweld3@gmail.com', N'KALEABTEWELD3@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAED5urP6LCpXTY4JNv4qQceZrQqrVaN1RYBQ9PCX17TD3aiBK2YFQZTx196leQtEANA==', N'MWKQJHIPIQ6HVX7IFLJE5UKM6G2CCV4G', N'b2b157cb-aceb-459c-becc-5d9c2c57e41f', N'+251900640160', 0, 0, NULL, 1, 0, 0, 1, N'Kaleab Tewebrhan Abay', 1)
-INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'f974277d-bf3b-4e9b-9ace-7027d37f2227', N'org2', N'ORG2', N'org2@gmail.com', N'ORG2@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAENuYVdIcNR0AJUkgbFcMbN44Se5r1oN7N0M+2nKWALykzjmPkrBR//7gRspox9BL+w==', N'DI6QRWLO3QJSRWV7RJPET7E3SMPQ7UF5', N'3a8578f1-ee18-4b82-8fa1-3f2c4a53cf7b', N'org2', 0, 0, NULL, 1, 0, 0, NULL, N'org2', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'28ab9e7d-588e-4953-b366-4245464c8aba', N'user4', N'USER4', N'kali@gmail.com', N'KALI@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEJg9B+PyuJlvGPNm5yHtyT2ADLLmL7hNv3hnc45HROeq9+kWu8D3ICIJo8oHsdOvbQ==', N'5PNQXUBMMSICYZ6YPXYVEYOUMRVQJILQ', N'7efba1b5-2c4b-475d-8f36-0d47beac1267', N'0992872310', 0, 0, NULL, 1, 0, 0, NULL, N'kali', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'39776f0e-9a88-48ca-8793-73d34e954095', N'org3', N'ORG3', N'hilcoe@gmail.com', N'HILCOE@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEHsblGABJ+xpW2auxcpRbmLDegZpmR+wmJuNRA/olE34RZlrwboJiBthuRHeLJXGvw==', N'2XD3ZMPVBQRC63CGEYPCRDSUMRJZRBO3', N'bbe6a13e-ead7-4c53-a1d2-19c09d396302', N'0911121314', 0, 0, NULL, 1, 0, 0, NULL, N'dr. ahmed', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'7499ef1f-26c3-4e9b-9243-e7c64ac841d7', N'user1', N'USER1', N'metadel001@gmail.com', N'METADEL001@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEMrOsgO9t6KwQJwQVAzIZndGPWCd5qwSH1xJdr+jvq/QizktKUM33LTlrILXkRBZhw==', N'INWONSJ4ZXSCWIT3ZQB32WCIVE57LMH2', N'c41985bd-4641-4686-b7af-5a6f96473f2f', N'0983915403', 0, 0, NULL, 1, 0, 0, 1, N'edelawit', 1)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'763a75ee-6278-4c36-8037-e7974610f6a8', N'user2', N'USER2', N'Zola@gmail.com', N'ZOLA@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEMhYBm4C5P/lpuxOZyJJG9yN3iW4O1w8tgwuhu2kW6nU7ln89ZBYrLwX6SnxpKrfUw==', N'SVSXJ5WRXSAK33WDZW6ZB6OUIDEEBYLD', N'6329da9e-f399-4ae3-9677-825dcf51f095', N'0900600100', 0, 0, NULL, 1, 0, 0, NULL, N'kaleab', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'77c295fe-371a-4b61-8af6-d70bde2fd402', N'org1', N'ORG1', N'labora@gmail.com', N'LABORA@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAECfwx1+fFaHpGojK5kjoM3tNO9j3WxzRH2vH5VsoZSyekx9IPv8b5XWGOGdlNtqkng==', N'LXJ4DQ2SJYO5IUH7PETEKROYUWE6I3DN', N'65f2cdc5-3733-4c9a-b7b9-4ff3ef50b04b', N'0911308452', 0, 0, NULL, 1, 0, 0, NULL, N'dr. abebe', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'938b0395-7bcf-4492-8a94-99bf22fda75b', N'org4', N'ORG4', N'amine@gmail.com', N'AMINE@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAELksSsZ16B0vvdrMfGBnmwSRhdO/TrqE1/bHgTBZrNVSGYcIqrIJ5eMMaGThvzzPjQ==', N'73PPFVBA2KRZR3YOW3YYHBX5EWO6NHCD', N'13cbdf09-1074-4c28-b3d4-f969a7015060', N'0988323232', 0, 0, NULL, 1, 0, 0, NULL, N'dr.stone', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'a55ad325-023f-4928-acd7-01f0034692b8', N'user3', N'USER3', N'lidi@gmail.com', N'LIDI@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEMioV/PsUAiO4Isuy0+rZXfoz1rzO3e+gmIV8/ECq6maLZTq1Gdzr6137ThQnsXYmg==', N'55M7YIWRD4LE4H64IJI4NYNZDIFWTQYV', N'8d4e052f-1723-4abd-8bc0-5c223bc7ec6c', N'0906428362', 0, 0, NULL, 1, 0, 0, NULL, N'lidiya', NULL)
+INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [XP], [collageinstitutionId], [fullName], [studentsId]) VALUES (N'bb89a233-eb9d-49ac-98eb-32361ae1a332', N'org2', N'ORG2', N'bora@gmail.com', N'BORA@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEJif1Lm1dnhuuXr+O3D6gK4KgK0a64Ko1qQZDs3O4gWkxSqcLY5Kp16A3DnMDO/niA==', N'IPKQUXCVYJWGKIJAMLAYXVYMXV33PHWG', N'0daa2c48-50b0-44ea-9573-1b3936e78095', N'0900303030', 0, 0, NULL, 1, 0, 0, NULL, N'professor kebede', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Collages] ON 
 
-INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (1, N'hilcoe', N'hilcoe@gmail.com', N'+25197575675')
-INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (2, N'AAU', N'AAU@gmail.com', N'+25197575675')
-INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (3, N'temp', N'temp@gmail.com', N'+25197575675')
+INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (1, N'HiLCoE', N'hilcoe@gmail.com', N'0911121314')
+INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (2, N'A.A', N'addisabeba@gmail.com', N'0988303030')
+INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (3, N'hawassa', N'hawassa@gmail.com', N'0970777777')
+INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (4, N'adama', N'adama@gmail.com', N'0960636363')
+INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (5, N'gonder', N'gonder@gmail.com', N'0918707070')
+INSERT [dbo].[Collages] ([institutionId], [name], [email], [phone]) VALUES (6, N'bahirdar', N'bahirdar@gmail.com', N'0911304050')
 SET IDENTITY_INSERT [dbo].[Collages] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Organizions] ON 
 
-INSERT [dbo].[Organizions] ([institutionId], [name], [email], [phone], [UserId]) VALUES (1, N'Deez nuts inc', N'Deeznuts@gmail.com', N'+25187364', N'3d26c238-85b1-4d57-b4f6-b79f2ca2139a')
-INSERT [dbo].[Organizions] ([institutionId], [name], [email], [phone], [UserId]) VALUES (2, N'abc', N'abc@gmail.com', N'+25187364', N'f974277d-bf3b-4e9b-9ace-7027d37f2227')
-INSERT [dbo].[Organizions] ([institutionId], [name], [email], [phone], [UserId]) VALUES (3, N'123', N'123@gmail.com', N'+25187364', N'e00ecf68-e085-4f13-8f02-b32dfae6dc74')
+INSERT [dbo].[Organizions] ([institutionId], [name], [email], [phone], [UserId]) VALUES (1, N'labora', N'labora@gmail.com', N'0911308452', N'77c295fe-371a-4b61-8af6-d70bde2fd402')
+INSERT [dbo].[Organizions] ([institutionId], [name], [email], [phone], [UserId]) VALUES (2, N'Bora', N'bora@gmail.com', N'0900303030', N'bb89a233-eb9d-49ac-98eb-32361ae1a332')
+INSERT [dbo].[Organizions] ([institutionId], [name], [email], [phone], [UserId]) VALUES (3, N'HiLCoe', N'hilcoe@gmail.com', N'0911121314', N'39776f0e-9a88-48ca-8793-73d34e954095')
+INSERT [dbo].[Organizions] ([institutionId], [name], [email], [phone], [UserId]) VALUES (4, N'Anime', N'amine@gmail.com', N'0988323232', N'938b0395-7bcf-4492-8a94-99bf22fda75b')
 SET IDENTITY_INSERT [dbo].[Organizions] OFF
 GO
 SET IDENTITY_INSERT [dbo].[PostJobs] ON 
 
-INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (1, N'flutter dev', N'a good flutter dev', N'hell', 1, 1, N'flutter figma', N'dev', 9, 4000, CAST(N'2022-01-02T00:00:00.0000000' AS DateTime2), N'dev')
-INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (2, N'jave dev', N'a good java dev', N'hell', 1, 1, N'java figma', N'dev', 9, 4000, CAST(N'2022-01-02T00:00:00.0000000' AS DateTime2), N'dev')
-INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (3, N'jave dev', N'a good java dev', N'hell', 2, 1, N'java figma', N'dev', 9, 4000, CAST(N'2022-01-02T00:00:00.0000000' AS DateTime2), N'dev')
-INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (4, N'c#', N'c# dev', N'any were', 1, 3, N'c# c#', N'dev', 12, 12000, CAST(N'2021-01-01T00:00:00.0000000' AS DateTime2), N'dev')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (1, N'Mobile app dev', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'Addis Ababa', 1, 2, N'flutter', N'app development', 4, 20000, CAST(N'2022-02-04T00:00:00.0000000' AS DateTime2), N'dev')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (2, N'Manegement', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'bahirdar', 1, 4, N'bussiness management experiance', N'maneging', 1, 120000, CAST(N'2021-02-04T00:00:00.0000000' AS DateTime2), N'bussiness')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (3, N'Tsedat', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'gonder', 1, 1, N'none', N'cleaning', 0, 2000, CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), N'geniter')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (4, N'Accountant', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'adama', 1, 3, N'Bachelor degree ', N'Manage all accounting transactions', 4, 10000, CAST(N'2022-02-04T00:00:00.0000000' AS DateTime2), N'in bank')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (5, N'Java dev', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'New York', 2, 5, N'JAVA', N'desktop app development', 6, 45000, CAST(N'2022-02-04T00:00:00.0000000' AS DateTime2), N'dev')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (6, N'Business Administration', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'Nirobi', 2, 2, N'Great analytical, critical thinking and problem-solving abilities', N'Staff Recruitment', 5, 35000, CAST(N'2022-02-04T00:00:00.0000000' AS DateTime2), N'Financial management')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (7, N'Tsedat', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'kera', 2, 1, N'none', N'cleaning', 8, 1500, CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), N'geniter')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (8, N'Accountant', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'Adama', 2, 1, N'bachelors degree in accounting or business ', N'Manage all accounting transactions', 6, 30000, CAST(N'2022-02-04T00:00:00.0000000' AS DateTime2), N'dev')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (9, N'Lecturer', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'Addis Ababa', 3, 1, N'presentation skill', N'planning teaching', 5, 50000, CAST(N'2022-02-04T00:00:00.0000000' AS DateTime2), N'c++ lecturer')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (10, N'Adminstrator', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'london', 3, 2, N'Masters', N'arranging schedules', 1, 30320, CAST(N'2021-02-04T00:00:00.0000000' AS DateTime2), N'coordinator')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (11, N'Super visor', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'toronto', 3, 2, N'cs knowledge', N'comminucation skill', 0, 15000, CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), N'officer')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (12, N'Secratory', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'asela', 3, 4, N'Bachelor degree ', N'negotiation skill', 4, 5000, CAST(N'2020-02-04T00:00:00.0000000' AS DateTime2), N'university campas')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (13, N'Pilot', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'Addis Ababa', 4, 6, N'Ethiopia airline', N'analying flights', 5, 500000, CAST(N'2022-02-04T00:00:00.0000000' AS DateTime2), N'international flight')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (14, N'hostess', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'london', 4, 5, N'communication skill', N'welcome guest', 1, 100000, CAST(N'2021-02-04T00:00:00.0000000' AS DateTime2), N'communicating')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (15, N'mechanical enginner', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'toronto', 4, 4, N'masters', N'CAD', 0, 15000, CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), N'engine designer')
+INSERT [dbo].[PostJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes]) VALUES (16, N'data Analyst', N'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', N'asela', 4, 3, N'degree in cs ', N'collecting data', 4, 60000, CAST(N'2020-02-04T00:00:00.0000000' AS DateTime2), N'Intelligence analyst')
 SET IDENTITY_INSERT [dbo].[PostJobs] OFF
 GO
-INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (1, 1)
-INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (2, 2)
-INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (3, 2)
-INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (4, 7)
-GO
-INSERT [dbo].[PostJobUserModel] ([bookJobsjobId], [bookUsersId]) VALUES (1, N'76fb78bb-8583-45d2-9aae-a1e0b1b27214')
-INSERT [dbo].[PostJobUserModel] ([bookJobsjobId], [bookUsersId]) VALUES (4, N'76fb78bb-8583-45d2-9aae-a1e0b1b27214')
-INSERT [dbo].[PostJobUserModel] ([bookJobsjobId], [bookUsersId]) VALUES (4, N'b3dcfbe7-7f49-492c-800f-3cdad4078f86')
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (1, 3)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (1, 6)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (1, 12)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (1, 28)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (2, 15)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (3, 14)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (4, 19)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (5, 3)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (5, 13)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (6, 18)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (7, 14)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (8, 19)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 1)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 2)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 3)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 4)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 5)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 6)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 7)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 8)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 9)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 10)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 11)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 12)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 13)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (9, 20)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (10, 16)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (11, 22)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (12, 23)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (13, 24)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (14, 25)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (15, 26)
+INSERT [dbo].[PostJobSkills] ([jobSkillRequirementsjobId], [jobSkillRequirementsskillId]) VALUES (16, 27)
 GO
 SET IDENTITY_INSERT [dbo].[Skills] ON 
 
-INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (1, N'flutter')
-INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (2, N'java')
-INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (3, N'python')
-INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (4, N'sql')
-INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (5, N'mysql')
-INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (6, N'c++')
-INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (7, N'c#')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (1, N'HTML')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (2, N'CSS')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (3, N'JAVA')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (4, N'C#')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (5, N'PYTHON')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (6, N'JAVASCRIPT')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (7, N'C++')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (8, N'REACT')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (9, N'ANGULAR')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (10, N'DATABASE')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (11, N'FRONTEND DEVELOPER')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (12, N'BACKEND DEVELOPER')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (13, N'FULL STACK DEVELOPER')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (14, N'Tsedat')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (15, N'Manegement')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (16, N'Accountant')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (17, N'Tsedat')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (18, N'Business Administration')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (19, N'Accountant')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (20, N'Lecturer')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (21, N'Adminstrator')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (22, N'Super visor')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (23, N'Secratory')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (24, N'Pilot')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (25, N'hostess')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (26, N'mechanical enginner')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (27, N'data Analyst')
+INSERT [dbo].[Skills] ([skillId], [skillName]) VALUES (28, N'flutter')
 SET IDENTITY_INSERT [dbo].[Skills] OFF
 GO
 INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 1)
-INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 2)
-INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 3)
 INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 4)
 INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 5)
-GO
-INSERT [dbo].[SkillsWorkingJob] ([jobSkillRequirementsskillId], [workingJobjobSkillRequirementsjobId]) VALUES (7, 1)
-INSERT [dbo].[SkillsWorkingJob] ([jobSkillRequirementsskillId], [workingJobjobSkillRequirementsjobId]) VALUES (1, 2)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 10)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 13)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 19)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 26)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 27)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (1, 28)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 1)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 2)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 4)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 6)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 7)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 13)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 15)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 17)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 18)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (2, 23)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 1)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 7)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 8)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 9)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 10)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 16)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 22)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 24)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (3, 25)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 1)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 2)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 3)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 4)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 5)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 13)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 23)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 27)
+INSERT [dbo].[SkillsStudents] ([StudentsSkillsstudentsId], [skillsskillId]) VALUES (4, 28)
 GO
 SET IDENTITY_INSERT [dbo].[Students] ON 
 
-INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (1, N'kaleab teweldbrhan', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3.5, 0, 1)
-INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (2, N'temp', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3.5, 0, 1)
-INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (3, N'temp2', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3.5, 0, 2)
-INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (4, N'lidiya zeleke', CAST(N'2019-07-04T00:00:00.0000000' AS DateTime2), NULL, 4, 0, 1)
-INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (5, N'edelawit Abebe ', CAST(N'2019-01-01T00:00:00.0000000' AS DateTime2), NULL, 4, 0, 1)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (1, N'edelawit', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3.6, 0, 1)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (2, N'kaleab', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3.5, 0, 1)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (3, N'lidiya', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 4, 0, 2)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (4, N'kalkidan', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3, 0, 3)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (5, N'bitsu', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3.9, 0, 4)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (6, N'bitsu', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3.9, 0, 4)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (7, N'mekedelawit', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3, 0, 5)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (8, N'yeshak', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 2, 0, 1)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (9, N'kerim', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 1.7, 0, 2)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (10, N'timaj', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 4, 0, 5)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (11, N'million', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 3.8, 0, 3)
+INSERT [dbo].[Students] ([studentsId], [fullName], [startingYear], [endYear], [GPA], [isGraduated], [CollageinstitutionId]) VALUES (12, N'yamanuel', CAST(N'2019-02-04T00:00:00.0000000' AS DateTime2), NULL, 2.5, 0, 4)
 SET IDENTITY_INSERT [dbo].[Students] OFF
-GO
-INSERT [dbo].[UserModelWorkingJob] ([employeesId], [jobsjobId]) VALUES (N'76fb78bb-8583-45d2-9aae-a1e0b1b27214', 1)
-INSERT [dbo].[UserModelWorkingJob] ([employeesId], [jobsjobId]) VALUES (N'b3dcfbe7-7f49-492c-800f-3cdad4078f86', 2)
-GO
-SET IDENTITY_INSERT [dbo].[WorkingJobs] ON 
-
-INSERT [dbo].[WorkingJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes], [startDate], [contractDetail], [userJobSatisfactionRating], [employersatisfactionRating]) VALUES (1, N'c#', N'c# dev', N'any were', 1, 3, N'c# c#', N'dev', 12, 12000, CAST(N'2021-01-01T00:00:00.0000000' AS DateTime2), N'dev', CAST(N'2021-01-01T00:00:00.0000000' AS DateTime2), N'', 0, 0)
-INSERT [dbo].[WorkingJobs] ([jobId], [jobTitle], [jobDescription], [location], [postByinstitutionId], [employmentType], [jobRequirements], [jobDuties], [minWorkingHours], [jobSalary], [postDate], [jobsTypes], [startDate], [contractDetail], [userJobSatisfactionRating], [employersatisfactionRating]) VALUES (2, N'flutter dev', N'a good flutter dev', N'hell', 1, 1, N'flutter figma', N'dev', 9, 4000, CAST(N'2022-01-02T00:00:00.0000000' AS DateTime2), N'dev', CAST(N'2022-01-02T00:00:00.0000000' AS DateTime2), N'', 0, 0)
-SET IDENTITY_INSERT [dbo].[WorkingJobs] OFF
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_Applicants_applicantId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_Applicants_applicantId] ON [dbo].[Applicants]
-(
-	[applicantId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_Applicants_PostJobId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_Applicants_PostJobId] ON [dbo].[Applicants]
-(
-	[PostJobId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_AspNetRoleClaims_RoleId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_AspNetRoleClaims_RoleId] ON [dbo].[AspNetRoleClaims]
-(
-	[RoleId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [RoleNameIndex]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE UNIQUE NONCLUSTERED INDEX [RoleNameIndex] ON [dbo].[AspNetRoles]
-(
-	[NormalizedName] ASC
-)
-WHERE ([NormalizedName] IS NOT NULL)
-WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_AspNetUserClaims_UserId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_AspNetUserClaims_UserId] ON [dbo].[AspNetUserClaims]
-(
-	[UserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_AspNetUserLogins_UserId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_AspNetUserLogins_UserId] ON [dbo].[AspNetUserLogins]
-(
-	[UserId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_AspNetUserRoles_RoleId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_AspNetUserRoles_RoleId] ON [dbo].[AspNetUserRoles]
-(
-	[RoleId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [EmailIndex]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [EmailIndex] ON [dbo].[AspNetUsers]
-(
-	[NormalizedEmail] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_AspNetUsers_collageinstitutionId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_AspNetUsers_collageinstitutionId] ON [dbo].[AspNetUsers]
-(
-	[collageinstitutionId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_AspNetUsers_studentsId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_AspNetUsers_studentsId] ON [dbo].[AspNetUsers]
-(
-	[studentsId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [UserNameIndex]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE UNIQUE NONCLUSTERED INDEX [UserNameIndex] ON [dbo].[AspNetUsers]
-(
-	[NormalizedUserName] ASC
-)
-WHERE ([NormalizedUserName] IS NOT NULL)
-WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_DoneJobs_postByinstitutionId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_DoneJobs_postByinstitutionId] ON [dbo].[DoneJobs]
-(
-	[postByinstitutionId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_DoneJobSkills_jobSkillRequirementsskillId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_DoneJobSkills_jobSkillRequirementsskillId] ON [dbo].[DoneJobSkills]
-(
-	[jobSkillRequirementsskillId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_DoneJobUserModel_employeesId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_DoneJobUserModel_employeesId] ON [dbo].[DoneJobUserModel]
-(
-	[employeesId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_PostJobs_postByinstitutionId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_PostJobs_postByinstitutionId] ON [dbo].[PostJobs]
-(
-	[postByinstitutionId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_PostJobSkills_jobSkillRequirementsskillId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_PostJobSkills_jobSkillRequirementsskillId] ON [dbo].[PostJobSkills]
-(
-	[jobSkillRequirementsskillId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_PostJobUserModel_bookUsersId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_PostJobUserModel_bookUsersId] ON [dbo].[PostJobUserModel]
-(
-	[bookUsersId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_SkillsStudents_skillsskillId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_SkillsStudents_skillsskillId] ON [dbo].[SkillsStudents]
-(
-	[skillsskillId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-SET ANSI_PADDING ON
-GO
-/****** Object:  Index [IX_SkillsUserModel_userId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_SkillsUserModel_userId] ON [dbo].[SkillsUserModel]
-(
-	[userId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_SkillsWorkingJob_workingJobjobSkillRequirementsjobId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_SkillsWorkingJob_workingJobjobSkillRequirementsjobId] ON [dbo].[SkillsWorkingJob]
-(
-	[workingJobjobSkillRequirementsjobId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_Students_CollageinstitutionId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_Students_CollageinstitutionId] ON [dbo].[Students]
-(
-	[CollageinstitutionId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_UserModelWorkingJob_jobsjobId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_UserModelWorkingJob_jobsjobId] ON [dbo].[UserModelWorkingJob]
-(
-	[jobsjobId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-GO
-/****** Object:  Index [IX_WorkingJobs_postByinstitutionId]    Script Date: 9/30/2022 8:58:59 PM ******/
-CREATE NONCLUSTERED INDEX [IX_WorkingJobs_postByinstitutionId] ON [dbo].[WorkingJobs]
-(
-	[postByinstitutionId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
 ALTER TABLE [dbo].[Applicants] ADD  DEFAULT (N'') FOR [cvUploadLoc]
 GO
@@ -1041,8 +868,3 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[WorkingJobs] CHECK CONSTRAINT [FK_WorkingJobs_Organizions_postByinstitutionId]
 GO
-USE [master]
-GO
-ALTER DATABASE [Freelancer] SET  READ_WRITE 
-GO
-
