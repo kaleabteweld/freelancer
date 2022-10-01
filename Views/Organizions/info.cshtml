@@ -16,7 +16,7 @@
         <link href="~/css/site.css" rel="stylesheet" />
 
         <div id="ApplicantCardContainerTemp">
-            <a class="downloadCv" href="@Url.Action("viewPdf", "Job" , new { pdfUrl="C:\\Users\\kalea\\OneDrive\\Documents\\dbDiagram.pdf" })">Download Cv</a>
+            <a class="downloadCv" href="@Url.Action("viewPdf", "Job" , new { pdfUrl=Model.cvUploadLoc })">Download Cv</a>
         </div>
         @Html.Partial("_collageCard",(Model.applicant) as UserModel);
 
