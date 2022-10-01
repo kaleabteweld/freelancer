@@ -4,12 +4,19 @@
     ViewBag.orgFlag = true;
 }
 @(ViewBag.applicantId = Model.ApplicatioID)
+@(ViewBag.cvUploadLoc = Model.cvUploadLoc)
+
 
 @Html.Partial("_JobDetail",Model.PostJob)
 
 @section filtter {
     <div>
-        
+
+        <link href="~/css/site.css" rel="stylesheet" />
+
+        <div id="ApplicantCardContainerTemp">
+            <a class="downloadCv" href="@Url.Action("viewPdf", "Job" , new { pdfUrl="C:\\Users\\kalea\\OneDrive\\Documents\\dbDiagram.pdf" })">Download Cv</a>
+        </div>
         @Html.Partial("_collageCard",(Model.applicant) as UserModel);
 
     </div>

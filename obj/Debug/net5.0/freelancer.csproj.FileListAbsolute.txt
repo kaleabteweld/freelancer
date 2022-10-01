@@ -188,3 +188,5 @@ C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\_Organizi
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Organizions\info.cshtml.g.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Organizions\ListEmployees.cshtml.g.cs
 C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Shared\_userCard.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Account\_LogIn.cshtml.g.cs
+C:\Data\Projects\school\freelancer\obj\Debug\net5.0\Razor\Views\Job\viewPdf.cshtml.g.cs

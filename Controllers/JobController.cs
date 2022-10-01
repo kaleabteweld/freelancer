@@ -160,6 +160,12 @@ namespace freelancer.Controllers
             return View(postJob);
         }
 
+        public IActionResult viewPdf(string pdfUrl)
+        {
+            string ReportURL = pdfUrl;
+            byte[] FileBytes = System.IO.File.ReadAllBytes(ReportURL);
+            return File(FileBytes, "application/pdf");
+        }
 
 
     }
