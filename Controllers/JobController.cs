@@ -124,6 +124,7 @@ namespace freelancer.Controllers
                     uploadLoc += Guid.NewGuid().ToString() + upload.FileName;
                     FileStream fileStream = new FileStream(uploadLoc, FileMode.Create);
                     upload.CopyTo(fileStream);
+                    fileStream.Close();
 
                     string? userId = signInManager.UserManager.GetUserId(HttpContext.User);
                     if (userId == null || postJobId == null)
